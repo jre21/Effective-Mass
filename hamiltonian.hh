@@ -2,6 +2,7 @@
 #define _HAMILTONIAN_HH 1
 
 #include <gsl/gsl_vector.h>
+#include <gsl/gsl_matrix.h>
 
 // classes defining the matrix terms used
 #ifndef _MATRIX_TERM_HH
@@ -39,6 +40,8 @@ public:
 protected:
   // generate eigenvalues
   void gen_evals();
+  // measure degree by which matrix fails to be hermitian
+  double nonhermiticity(gsl_matrix_complex *m);
 
   // pointers to the current term objects
   crystal_term *crystal;

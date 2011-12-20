@@ -19,7 +19,7 @@ DEPS	= zb_def.hh wz_def.hh gwz_def.hh s_def.hh coulomb_def.hh \
 	hamiltonian.hh matrix_term.hh
 
 ODIR	= obj
-_OBJ	= main.o
+_OBJ	= main.o hamiltonian.o
 OBJ	= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 BIN	= eivals.bin
