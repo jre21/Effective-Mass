@@ -17,6 +17,8 @@ class hamiltonian
 public:
   hamiltonian();
   hamiltonian(crystal_term *c, potential_term *p, overlap_term *o);
+  hamiltonian(crystal_term *c, potential_term *p, overlap_term *o,
+	      double min, double max, unsigned int num);
 
   // Set hamiltonian terms.  Note that these pointers should not be
   // reused between hamiltonian instances, because they will be
@@ -46,7 +48,7 @@ protected:
   // constants defining basis granularity
   double basis_min;
   double basis_max;
-  double basis_num;
+  unsigned int basis_num;
 
   // true if eigenvalues are generated from current parameters
   int clean_evals;
