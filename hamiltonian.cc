@@ -49,6 +49,14 @@ hamiltonian::hamiltonian(crystal_term *c, potential_term *p, overlap_term *o,
   this->evals = 0;
 }
 
+hamiltonian::~hamiltonian()
+{
+  if(this->crystal) delete this->crystal;
+  if(this->potential) delete this->potential;
+  if(this->overlap) delete this->overlap;
+  if(this->evals) delete this->evals;
+}
+
 void hamiltonian::set_crystal(crystal_term *c)
 {
   this->crystal = c;
