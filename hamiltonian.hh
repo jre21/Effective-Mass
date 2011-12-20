@@ -20,6 +20,7 @@ public:
   hamiltonian(crystal_term *c, potential_term *p, overlap_term *o);
   hamiltonian(crystal_term *c, potential_term *p, overlap_term *o,
 	      double min, double max, unsigned int num);
+  ~hamiltonian();
 
   // Set hamiltonian terms.  Note that these pointers should not be
   // reused between hamiltonian instances, because they will be
@@ -40,7 +41,9 @@ public:
 protected:
   // generate eigenvalues
   void gen_evals();
-  // measure degree by which matrix fails to be hermitian
+  // Measure degree by which matrix fails to be hermitian, and return
+  // 0 if the failure is within an allowed tolerance attributable to
+  // roundoff error.
   double nonhermiticity(gsl_matrix_complex *m);
 
   // pointers to the current term objects

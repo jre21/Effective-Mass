@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <gsl/gsl_complex_math.h>
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_eigen.h>
@@ -129,8 +130,29 @@ void hamiltonian::gen_evals()
   gsl_matrix_complex_free(o);
 }
 
-// stub for now
 double hamiltonian::nonhermiticity(gsl_matrix_complex *m)
 {
-  return 0;
+  double norm = 0.0, addend;
+  for(size_t i = 0; i < m->size1; i++)
+    for(size_t j = 0; j < m->size1; j++)
+      {
+	addend = gsl_complex_abs2
+	  (
+	   gsl_complex_sub
+	   (
+	    gsl_matrix_complex_get(m,i,j),
+	    gsl_complex_conjugate(gsl_matrix_complex_get(m,j,i))
+	   )
+	  )
+	  / gsl_complex_abs2
+	  (
+	   gsl_complex_add
+	   (
+	    gsl_matrix_complex_get(m,i,j),
+	    gsl_matrix_complex_get(m,j,i)
+	   )
+	  );
+	if(addend > 1e-20) norm += addend;
+      }
+  return norm;
 }
