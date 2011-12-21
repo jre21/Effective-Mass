@@ -19,7 +19,7 @@ public:
   hamiltonian();
   hamiltonian(crystal_term *c, potential_term *p, overlap_term *o);
   hamiltonian(crystal_term *c, potential_term *p, overlap_term *o,
-	      double min, double max, unsigned int num);
+	      double min, double max, size_t num);
   ~hamiltonian();
 
   // Set hamiltonian terms.  Note that these pointers should not be
@@ -33,7 +33,7 @@ public:
   // minimum and maximum scales in multiples of the inverse effective
   // Bohr radius.  Num basis states will be used scaling between these
   // values in a geometric progression.
-  void set_granularity(double min, double max, unsigned int num);
+  void set_granularity(double min, double max, size_t num);
 
   // Get the n'th eigenvalue, recalculating all eigenvalues if
   // necessary.
@@ -54,7 +54,7 @@ protected:
   // constants defining basis granularity
   double basis_min;
   double basis_max;
-  unsigned int basis_num;
+  size_t basis_num;
 
   // true if eigenvalues are generated from current parameters
   int clean_evals;

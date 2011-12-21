@@ -38,7 +38,7 @@ hamiltonian::hamiltonian(crystal_term *c, potential_term *p, overlap_term *o)
 }
 
 hamiltonian::hamiltonian(crystal_term *c, potential_term *p, overlap_term *o,
-			 double min, double max, unsigned int num)
+			 double min, double max, size_t num)
 {
   this->crystal = c;
   this->potential = p;
@@ -75,7 +75,7 @@ void hamiltonian::set_overlap(overlap_term *o)
   this->clean_evals = 0;
 }
 
-void hamiltonian::set_granularity(double min, double max, unsigned int num)
+void hamiltonian::set_granularity(double min, double max, size_t num)
 {
   this->basis_min = min;
   this->basis_max = max;
