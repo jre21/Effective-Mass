@@ -35,6 +35,9 @@ public:
   // values in a geometric progression.
   void set_granularity(double min, double max, size_t num);
 
+  // set dielectric constant
+  double set_dielectric_constant(double k);
+
   // Get the n'th eigenvalue, recalculating all eigenvalues if
   // necessary.
   double get_eval(int n);
@@ -44,7 +47,7 @@ protected:
   // Measure degree by which matrix fails to be hermitian, and return
   // 0 if the failure is within an allowed tolerance attributable to
   // roundoff error.
-  double nonhermiticity(gsl_matrix_complex *m);
+  static double nonhermiticity(gsl_matrix_complex *m);
 
   // pointers to the current term objects
   crystal_term *crystal;
@@ -56,10 +59,17 @@ protected:
   double basis_max;
   size_t basis_num;
 
+  // Further constants used in Hamiltonian.  See declarations in
+  // matrix_term.hh, class matrix_term
+  double inv_radius;
+  double dielectric;
+
   // true if eigenvalues are generated from current parameters
   int clean_evals;
 
-  // calculated eigenvalues
+  // Calculated eigenvalues.  Allocation occurs just prior to
+  // calculating eigenvalues, and the structure is deallocated any
+  // time the number of eigenvalues needed changes.
   gsl_vector *evals;
 };
 

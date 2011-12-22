@@ -8,6 +8,7 @@
 class matrix_term
 {
 public:
+  matrix_term();
   ~matrix_term();
 
   // Build a matrix out of implementation-defined blocks.
@@ -35,7 +36,8 @@ protected:
   // caller is responsible for copying it to the other terms.
   double inv_radius;
 
-  // Dielectric constant.  This should be set by the caller.
+  // Dielectric constant.  This should be set by the caller, and is
+  // irrelevant for overlap terms.
   double dielectric;
 };
 
@@ -43,5 +45,15 @@ protected:
 class crystal_term   : public matrix_term {};
 class potential_term : public matrix_term {};
 class overlap_term   : public matrix_term {};
+
+// terms using basis functions with radial exponential decay
+
+// exponential overlap term
+class exp_overlap : public overlap_term
+{
+protected:
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+};
+
 
 #endif // _MATRIX_TERM_HH

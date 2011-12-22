@@ -1,5 +1,6 @@
 #include <math.h>
 
+#include <gsl/gsl_complex_math.h>
 #include <gsl/gsl_matrix.h>
 
 #include "matrix_term.hh"
@@ -12,27 +13,32 @@
 // harmonics.
 #define BLOCK_SIZE 36
 
-matrix_term::~matrix_term()
+// ########################### matrix_term ###########################
+matrix_term::matrix_term()
 {
-  on_delete();
+  this->inv_radius = this->dielectric = 1.0;
 }
 
-gsl_matrix_complex *matrix_term::matrix
-(double min, double max, size_t num)
+matrix_term::~matrix_term()
+{
+  this->on_delete();
+}
+
+gsl_matrix_complex *matrix_term::matrix(double min, double max, size_t num)
 {
   gsl_matrix_complex *work, *output =
     gsl_matrix_complex_alloc(BLOCK_SIZE * num, BLOCK_SIZE * num);
   gsl_matrix_complex_view view;
 
   // rescale min and max
-  min *= inv_radius;
-  max *= inv_radius;
+  min *= this->inv_radius;
+  max *= this->inv_radius;
 
   for(size_t i = 0; i < num; i++)
     for(size_t j = 0; j < num; j++)
       {
 	// copy contents of each block into output
-	work = matrix_block
+	work = this->matrix_block
 	  (
 	   min * pow(max/min,(double)i/(num-1)),
 	   min * pow(max/min,(double)j/(num-1))
@@ -68,4 +74,13 @@ double matrix_term::set_dielectric_constant(double k)
 // no-op to be overriden by child classes with destructor code
 void matrix_term::on_delete()
 {
+}
+
+// ########################### exp_overlap ###########################
+gsl_matrix_complex *exp_overlap::matrix_block(double a1, double a2)
+{
+  gsl_matrix_complex *output =
+    gsl_matrix_complex_alloc(BLOCK_SIZE, BLOCK_SIZE);
+  #include "exp_overlap_def.hh"
+  return output;
 }

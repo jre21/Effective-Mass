@@ -11,12 +11,15 @@ LINK=	g++
 #
 CFLAGS	= -Wall -Wextra	-Wshadow -Wpointer-arith -Wcast-qual \
 	-Wcast-align -Wwrite-strings -fshort-enums -fno-common \
-	-g -O2 -DHAVE_INLINE
+	-g -O3 -DHAVE_INLINE
 LDLIBS	= -lgsl -lcblas -latlas -lm
 
-DEPS	= zb_def.hh wz_def.hh gwz_def.hh s_def.hh coulomb_def.hh \
+DEFNS	= exp_overlap_def.hh \
+	zb_def.hh wz_def.hh gwz_def.hh coulomb_def.hh \
 	dielectric_def.hh well_def.hh pseudopotential_def.hh \
-	hamiltonian.hh matrix_term.hh
+
+
+DEPS	= $(DEFNS) hamiltonian.hh matrix_term.hh
 
 ODIR	= obj
 _OBJ	= main.o hamiltonian.o matrix_term.o
@@ -24,9 +27,7 @@ OBJ	= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 BIN	= eivals.bin
 
-GENERATED = $(OBJ) $(BIN) s_def.hh zb_def.hh wz_def.hh gwz_def.hh \
-	coulomb_def.hh dielectric_def.hh well_def.hh \
-	pseudopotential_def.hh sc_def.hh
+GENERATED = $(OBJ) $(BIN) $(DEFNS)
 
 .PHONY	:	all
 all	:	$(BIN)
