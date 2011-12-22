@@ -76,6 +76,27 @@ void matrix_term::on_delete()
 {
 }
 
+// ############################## exp_zb #############################
+exp_zb::exp_zb
+(double _g1, double _g2, double _g3, double _d0, double _dielectric)
+{
+  this->g1 = _g1;
+  this->g2 = _g2;
+  this->g3 = _g3;
+  this->d0 = _d0;
+  this->dielectric = _dielectric;
+  this->inv_radius = 1.0 / _g1 / _dielectric;
+}
+
+gsl_matrix_complex *exp_zb::matrix_block(double a1, double a2)
+{
+  gsl_matrix_complex *output =
+    gsl_matrix_complex_alloc(BLOCK_SIZE, BLOCK_SIZE);
+  #include "exp_zb_def.hh"
+  return output;
+}
+
+
 // ########################### exp_overlap ###########################
 gsl_matrix_complex *exp_overlap::matrix_block(double a1, double a2)
 {

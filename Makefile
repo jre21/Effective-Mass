@@ -14,8 +14,8 @@ CFLAGS	= -Wall -Wextra	-Wshadow -Wpointer-arith -Wcast-qual \
 	-g -O3 -DHAVE_INLINE
 LDLIBS	= -lgsl -lcblas -latlas -lm
 
-DEFNS	= exp_overlap_def.hh \
-	zb_def.hh wz_def.hh gwz_def.hh coulomb_def.hh \
+DEFNS	= exp_zb_def.hh exp_overlap_def.hh \
+	wz_def.hh gwz_def.hh coulomb_def.hh \
 	dielectric_def.hh well_def.hh pseudopotential_def.hh \
 
 
@@ -25,7 +25,7 @@ ODIR	= obj
 _OBJ	= main.o hamiltonian.o matrix_term.o
 OBJ	= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
-BIN	= eivals.bin
+BIN	= evals.bin
 
 GENERATED = $(OBJ) $(BIN) $(DEFNS)
 

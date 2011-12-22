@@ -36,17 +36,31 @@ protected:
   // caller is responsible for copying it to the other terms.
   double inv_radius;
 
-  // Dielectric constant.  This should be set by the caller, and is
-  // irrelevant for overlap terms.
+  // Dielectric constant.  This should be passed into the crystal term
+  // through the constructor, then passed to the impurity term by the
+  // caller.
   double dielectric;
 };
 
 // the basic types of matrix terms
 class crystal_term   : public matrix_term {};
-class potential_term : public matrix_term {};
+class impurity_term : public matrix_term {};
 class overlap_term   : public matrix_term {};
 
 // terms using basis functions with radial exponential decay
+
+// zinc-blend crystal term
+class exp_zb : public crystal_term
+{
+public:
+  exp_zb(double g1, double g2, double g3, double d0, double dielectric);
+protected:
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+  double g1;
+  double g2;
+  double g3;
+  double d0;
+};
 
 // exponential overlap term
 class exp_overlap : public overlap_term

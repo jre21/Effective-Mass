@@ -7,7 +7,7 @@
 // classes defining the matrix terms used
 #ifndef _MATRIX_TERM_HH
 class crystal_term;
-class potential_term;
+class impurity_term;
 class overlap_term;
 #endif
 
@@ -17,8 +17,8 @@ class hamiltonian
 {
 public:
   hamiltonian();
-  hamiltonian(crystal_term *c, potential_term *p, overlap_term *o);
-  hamiltonian(crystal_term *c, potential_term *p, overlap_term *o,
+  hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o);
+  hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o,
 	      double min, double max, size_t num);
   ~hamiltonian();
 
@@ -26,7 +26,7 @@ public:
   // reused between hamiltonian instances, because they will be
   // deleted when no longer needed.
   void set_crystal(crystal_term *c);
-  void set_potential(potential_term *p);
+  void set_potential(impurity_term *p);
   void set_overlap(overlap_term *o);
 
   // Override default granularity of basis states.  Min and max set
@@ -34,9 +34,6 @@ public:
   // Bohr radius.  Num basis states will be used scaling between these
   // values in a geometric progression.
   void set_granularity(double min, double max, size_t num);
-
-  // set dielectric constant
-  double set_dielectric_constant(double k);
 
   // Get the n'th eigenvalue, recalculating all eigenvalues if
   // necessary.
@@ -51,7 +48,7 @@ protected:
 
   // pointers to the current term objects
   crystal_term *crystal;
-  potential_term *potential;
+  impurity_term *potential;
   overlap_term *overlap;
 
   // constants defining basis granularity

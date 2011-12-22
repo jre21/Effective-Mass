@@ -28,7 +28,7 @@ hamiltonian::hamiltonian()
   this->evals = NULL;
 }
 
-hamiltonian::hamiltonian(crystal_term *c, potential_term *p, overlap_term *o)
+hamiltonian::hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o)
 {
   this->set_crystal(c);
   this->set_potential(p);
@@ -41,7 +41,7 @@ hamiltonian::hamiltonian(crystal_term *c, potential_term *p, overlap_term *o)
   this->evals = NULL;
 }
 
-hamiltonian::hamiltonian(crystal_term *c, potential_term *p, overlap_term *o,
+hamiltonian::hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o,
 			 double min, double max, size_t num)
 {
   this->set_crystal(c);
@@ -71,13 +71,17 @@ void hamiltonian::set_crystal(crystal_term *c)
   this->clean_evals = 0;
   // pass in dielectric constant
   c->set_dielectric_constant(this->dielectric);
-  // set inv_radius from crystal term and propagate to other terms
+  // set dielectric constant and inv_radius from crystal term and
+  // propagate to other terms
   this->inv_radius = c->get_inv_radius();
   if(this->potential) this->potential->set_inv_radius(this->inv_radius);
   if(this->overlap) this->overlap->set_inv_radius(this->inv_radius);
+  this->dielectric = c->get_dielectric_constant();
+  if(this->potential)
+    this->potential->set_dielectric_constant(this->inv_radius);
 }
 
-void hamiltonian::set_potential(potential_term *p)
+void hamiltonian::set_potential(impurity_term *p)
 {
   // load potential term
   this->potential = p;
@@ -112,16 +116,6 @@ void hamiltonian::set_granularity(double min, double max, size_t num)
   this->basis_num = num;
   // ensure old eigenvalues don't get used
   this->clean_evals = 0;
-}
-
-double hamiltonian::set_dielectric_constant(double k)
-{
-  // load dielectric constant and propagate to the terms that depend
-  // on it
-  this->dielectric = k;
-  if(this->crystal) this->crystal->set_dielectric_constant(k);
-  if(this->potential) this->potential->set_dielectric_constant(k);
-  return k;
 }
 
 double hamiltonian::get_eval(int n)
