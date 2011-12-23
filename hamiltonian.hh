@@ -26,7 +26,7 @@ public:
   // reused between hamiltonian instances, because they will be
   // deleted when no longer needed.
   void set_crystal(crystal_term *c);
-  void set_potential(impurity_term *p);
+  void set_impurity(impurity_term *p);
   void set_overlap(overlap_term *o);
 
   // Override default granularity of basis states.  Min and max set
@@ -48,7 +48,7 @@ protected:
 
   // pointers to the current term objects
   crystal_term *crystal;
-  impurity_term *potential;
+  impurity_term *impurity;
   overlap_term *overlap;
 
   // constants defining basis granularity

@@ -3,6 +3,8 @@
 
 #include <gsl/gsl_matrix.h>
 
+#include "enum_elements.hh"
+
 // Base class for matrix terms.  It needs to be able to generate a
 // matrix based on the scale granularity parameters.
 class matrix_term
@@ -16,7 +18,7 @@ public:
   // max set minimum and maximum scales in multiples of the inverse
   // effective Bohr radius.  Num basis states will be used scaling
   // between these values in a geometric progression.
-  gsl_matrix_complex *matrix(double min, double max, size_t num);
+  virtual gsl_matrix_complex *matrix(double min, double max, size_t num);
 
   // Getters and setters for dielectric constant and inverse effective
   // Bohr radius
@@ -25,6 +27,12 @@ public:
   double get_dielectric_constant();
   double set_dielectric_constant(double k);
 protected:
+  // Callbacks to perform additional actions when parameters are set.
+  // These are called before setting the new value, but the new value
+  // is passed as an argument.
+  virtual void on_set_inv_radius(double r);
+  virtual void on_set_dielectric_constant(double k);
+
   // Return a matrix block based on scaling arguments and internal state.
   virtual gsl_matrix_complex *matrix_block(double a1, double a2) = 0;
 
@@ -62,7 +70,111 @@ protected:
   double d0;
 };
 
-// exponential overlap term
+// wurtzite crystal term
+class exp_wz : public crystal_term
+{
+public:
+  exp_wz(double A1, double A2, double A3, double A4, double A5, double A6,
+	 double d1, double d2, double d3, double dielectric);
+protected:
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+  double A1;
+  double A2;
+  double A3;
+  double A4;
+  double A5;
+  double A6;
+  double d1;
+  double d2;
+  double d3;
+};
+
+// generalized wurtzite crystal term
+class exp_gwz : public crystal_term
+{
+public:
+  exp_gwz(double A1, double A2, double A3, double B1, double B2, double B3,
+	  double C1, double C2, double C3, double D1, double D2, double D3,
+	  double d1c, double d2c, double d1so, double d2so, double d3so,
+	  double dielectric);
+protected:
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+  double A1;
+  double A2;
+  double A3;
+  double B1;
+  double B2;
+  double B3;
+  double C1;
+  double C2;
+  double C3;
+  double D1;
+  double D2;
+  double D3;
+  double d1c;
+  double d2c;
+  double d1so;
+  double d2so;
+  double d3so;
+};
+
+// coulomb impurity term
+class exp_coulomb : public impurity_term
+{
+public:
+  exp_coulomb();
+protected:
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+};
+
+// wang_chen impurity term
+class exp_wang : public impurity_term
+{
+public:
+  exp_wang(double V, double ra, double rb, double r1);
+protected:
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+  double V;
+  double ra;
+  double rb;
+  double r1;
+};
+
+class exp_LCZ_atom;
+
+// Lam-Cohen-Zunger pseudopotential impurity term
+class exp_LCZ : public impurity_term
+{
+public:
+  exp_LCZ(elements_t host, elements_t impurity);
+  gsl_matrix_complex *matrix(double min, double max, size_t num);
+protected:
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+  void on_set_inv_radius(double r);
+  void on_set_dielectric_constant(double k);
+  void on_delete();
+  exp_LCZ_atom *host;
+  exp_LCZ_atom *impurity;
+  exp_coulomb *coulomb;
+};
+
+// Lam-Cohen-Zunger pseudopotential atomic impurity term
+class exp_LCZ_atom : public impurity_term
+{
+public:
+  exp_LCZ_atom(elements_t atom);
+protected:
+  // set atom with d electrons treated as core when in full energy
+  // level
+  void set_d_core(elements_t atom);
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+  int Zc;
+  double C1;
+  double C2;
+  double C3;
+};
+
+// overlap term
 class exp_overlap : public overlap_term
 {
 protected:

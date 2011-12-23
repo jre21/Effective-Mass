@@ -11,18 +11,18 @@ LINK=	g++
 #
 CFLAGS	= -Wall -Wextra	-Wshadow -Wpointer-arith -Wcast-qual \
 	-Wcast-align -Wwrite-strings -fshort-enums -fno-common \
-	-g -O3 -DHAVE_INLINE
+	-fno-var-tracking -g -O3 -DHAVE_INLINE
 LDLIBS	= -lgsl -lcblas -latlas -lm
 
-DEFNS	= exp_zb_def.hh exp_overlap_def.hh \
-	wz_def.hh gwz_def.hh coulomb_def.hh \
-	dielectric_def.hh well_def.hh pseudopotential_def.hh \
+DEFNS	= exp_zb_def.hh exp_wz_def.hh exp_gwz_def.hh exp_coulomb_def.hh \
+	exp_dielectric_def.hh exp_well_def.hh exp_lcz_def.hh \
+	exp_overlap_def.hh
 
 
-DEPS	= $(DEFNS) hamiltonian.hh matrix_term.hh
+DEPS	= $(DEFNS) hamiltonian.hh matrix_term.hh enum_elements.hh
 
 ODIR	= obj
-_OBJ	= main.o hamiltonian.o matrix_term.o
+_OBJ	= main.o hamiltonian.o matrix_term.o enum_elements.o
 OBJ	= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 BIN	= evals.bin

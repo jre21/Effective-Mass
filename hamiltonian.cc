@@ -18,7 +18,7 @@
 hamiltonian::hamiltonian()
 {
   this->crystal = NULL;
-  this->potential = NULL;
+  this->impurity = NULL;
   this->overlap = NULL;
   this->basis_min = BASIS_MIN;
   this->basis_max = BASIS_MAX;
@@ -30,8 +30,11 @@ hamiltonian::hamiltonian()
 
 hamiltonian::hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o)
 {
+  this->crystal = NULL;
+  this->impurity = NULL;
+  this->overlap = NULL;
   this->set_crystal(c);
-  this->set_potential(p);
+  this->set_impurity(p);
   this->set_overlap(o);
   this->basis_min = BASIS_MIN;
   this->basis_max = BASIS_MAX;
@@ -44,8 +47,11 @@ hamiltonian::hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o)
 hamiltonian::hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o,
 			 double min, double max, size_t num)
 {
+  this->crystal = NULL;
+  this->impurity = NULL;
+  this->overlap = NULL;
   this->set_crystal(c);
-  this->set_potential(p);
+  this->set_impurity(p);
   this->set_overlap(o);
   this->basis_min = min;
   this->basis_max = max;
@@ -58,7 +64,7 @@ hamiltonian::hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o,
 hamiltonian::~hamiltonian()
 {
   if(this->crystal) delete this->crystal;
-  if(this->potential) delete this->potential;
+  if(this->impurity) delete this->impurity;
   if(this->overlap) delete this->overlap;
   if(this->evals) delete this->evals;
 }
@@ -74,17 +80,17 @@ void hamiltonian::set_crystal(crystal_term *c)
   // set dielectric constant and inv_radius from crystal term and
   // propagate to other terms
   this->inv_radius = c->get_inv_radius();
-  if(this->potential) this->potential->set_inv_radius(this->inv_radius);
+  if(this->impurity) this->impurity->set_inv_radius(this->inv_radius);
   if(this->overlap) this->overlap->set_inv_radius(this->inv_radius);
   this->dielectric = c->get_dielectric_constant();
-  if(this->potential)
-    this->potential->set_dielectric_constant(this->inv_radius);
+  if(this->impurity)
+    this->impurity->set_dielectric_constant(this->inv_radius);
 }
 
-void hamiltonian::set_potential(impurity_term *p)
+void hamiltonian::set_impurity(impurity_term *p)
 {
-  // load potential term
-  this->potential = p;
+  // load impurity term
+  this->impurity = p;
   // ensure old eigenvalues don't get used
   this->clean_evals = 0;
   // pass in dielectric constant and inv_radius
@@ -127,7 +133,7 @@ double hamiltonian::get_eval(int n)
 void hamiltonian::gen_evals()
 {
   // ensure Hamiltonian is fully built
-  if(!this->crystal || !this->potential || !this->overlap)
+  if(!this->crystal || !this->impurity || !this->overlap)
     {
       printf("Error: eigenvalues requested from incomplete Hamiltonian\n");
       exit(-1);
@@ -137,7 +143,7 @@ void hamiltonian::gen_evals()
   gsl_matrix_complex *c =
     this->crystal->matrix(this->basis_min, this->basis_max, this->basis_num);
   gsl_matrix_complex *p =
-    this->potential->matrix(this->basis_min, this->basis_max, this->basis_num);
+    this->impurity->matrix(this->basis_min, this->basis_max, this->basis_num);
   gsl_matrix_complex *o =
     this->overlap->matrix(this->basis_min, this->basis_max, this->basis_num);
   gsl_matrix_complex_add(c,p);
