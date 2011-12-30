@@ -1,5 +1,5 @@
-#ifndef _ENUM_ELEMENTS_HH
-#define _ENUM_ELEMENTS_HH 1
+#ifndef _ENUMS_HH
+#define _ENUMS_HH 1
 
 enum elements_t
   {
@@ -16,4 +16,4 @@ enum elements_t
 
 const char *elements_to_string(elements_t e);
 
-#endif // _ENUM_ELEMENTS_HH
+#endif // _ENUMS_HH

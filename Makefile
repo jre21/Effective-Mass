@@ -19,10 +19,10 @@ DEFNS	= exp_zb_def.hh exp_wz_def.hh exp_gwz_def.hh exp_coulomb_def.hh \
 	exp_overlap_def.hh
 
 
-DEPS	= $(DEFNS) hamiltonian.hh matrix_term.hh enum_elements.hh
+DEPS	= $(DEFNS) hamiltonian.hh matrix_term.hh enums.hh
 
 ODIR	= obj
-_OBJ	= main.o hamiltonian.o matrix_term.o enum_elements.o
+_OBJ	= main.o hamiltonian.o matrix_term.o enums.o
 OBJ	= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 BIN	= evals.bin

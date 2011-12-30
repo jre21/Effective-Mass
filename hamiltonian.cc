@@ -75,8 +75,8 @@ void hamiltonian::set_crystal(crystal_term *c)
   this->crystal = c;
   // ensure old eigenvalues don't get used
   this->clean_evals = 0;
-  // pass in dielectric constant
-  c->set_dielectric_constant(this->dielectric);
+  // fetch dielectric constant
+  this->dielectric = c->get_dielectric_constant();
   // set dielectric constant and inv_radius from crystal term and
   // propagate to other terms
   this->inv_radius = c->get_inv_radius();

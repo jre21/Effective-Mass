@@ -3,7 +3,7 @@
 
 #include <gsl/gsl_matrix.h>
 
-#include "enum_elements.hh"
+#include "enums.hh"
 
 // Base class for matrix terms.  It needs to be able to generate a
 // matrix based on the scale granularity parameters.
