@@ -119,3 +119,16 @@ const char *elements_to_string(elements_t e)
     default: return "unknown";
     }
 }
+
+const char *crystals_to_string(crystals_t c)
+{
+  switch(c)
+    {
+    case GaN: return "GaN";
+    case AlN: return "AlN";
+    case InN: return "InN";
+    case ZnGeN2: return "ZnGeN2";
+    case ZnSnN2: return "ZnSnN2";
+    default: return "unknown";
+    }
+}
