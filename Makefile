@@ -22,7 +22,8 @@ DEFNS	= exp_zb_def.hh exp_wz_def.hh exp_gwz_def.hh exp_coulomb_def.hh \
 DEPS	= $(DEFNS) hamiltonian.hh matrix_term.hh enums.hh
 
 ODIR	= obj
-_OBJ	= main.o hamiltonian.o matrix_term.o enums.o
+_OBJ	= main.o hamiltonian.o matrix_term.o \
+	matrix_term_implementations.o enums.o
 OBJ	= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 BIN	= evals.bin
