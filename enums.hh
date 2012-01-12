@@ -18,7 +18,7 @@ const char *elements_to_string(elements_t e);
 
 enum crystals_t
   {
-    GaN, AlN, InN, ZnGeN2, ZnSnN2
+    GaN, AlN, InN1, InN2, InN3, ZnGeN2, ZnSnN2
   };
 
 const char *crystals_to_string(crystals_t c);

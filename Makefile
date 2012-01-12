@@ -19,7 +19,7 @@ DEFNS	= exp_zb_def.hh exp_wz_def.hh exp_gwz_def.hh exp_coulomb_def.hh \
 	exp_overlap_def.hh
 
 
-DEPS	= $(DEFNS) hamiltonian.hh matrix_term.hh enums.hh
+DEPS	= $(DEFNS) hamiltonian.hh matrix_term.hh enums.hh defs.hh
 
 ODIR	= obj
 _OBJ	= main.o hamiltonian.o matrix_term.o \

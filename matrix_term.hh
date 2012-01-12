@@ -57,7 +57,7 @@ protected:
 
 // the basic types of matrix terms
 class crystal_term   : public matrix_term {};
-class impurity_term : public matrix_term {};
+class impurity_term  : public matrix_term {};
 class overlap_term   : public matrix_term {};
 
 // terms using basis functions with radial exponential decay
@@ -67,6 +67,7 @@ class exp_zb : public crystal_term
 {
 public:
   exp_zb(double g1, double g2, double g3, double d0, double dielectric);
+  exp_zb(crystals_t c);
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
   double g1;
@@ -81,6 +82,7 @@ class exp_wz : public crystal_term
 public:
   exp_wz(double A1, double A2, double A3, double A4, double A5, double A6,
 	 double d1, double d2, double d3, double dielectric);
+  exp_wz(crystals_t c);
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
   double A1;
@@ -102,6 +104,7 @@ public:
 	  double C1, double C2, double C3, double D1, double D2, double D3,
 	  double d1c, double d2c, double d1so, double d2so, double d3so,
 	  double dielectric);
+  exp_gwz(crystals_t c);
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
   double A1;

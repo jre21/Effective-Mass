@@ -126,7 +126,9 @@ const char *crystals_to_string(crystals_t c)
     {
     case GaN: return "GaN";
     case AlN: return "AlN";
-    case InN: return "InN";
+    case InN1: return "InN1";
+    case InN2: return "InN2";
+    case InN3: return "InN3";
     case ZnGeN2: return "ZnGeN2";
     case ZnSnN2: return "ZnSnN2";
     default: return "unknown";

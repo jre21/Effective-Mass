@@ -15,12 +15,12 @@ int matrix_term_block_size = 36;
 // ########################### matrix_term ###########################
 matrix_term::matrix_term()
 {
-  this->inv_radius = this->dielectric = 1.0;
+  inv_radius = dielectric = 1.0;
 }
 
 matrix_term::~matrix_term()
 {
-  this->on_delete();
+  on_delete();
 }
 
 gsl_matrix_complex *matrix_term::matrix(double min, double max, size_t num)
@@ -30,14 +30,14 @@ gsl_matrix_complex *matrix_term::matrix(double min, double max, size_t num)
   gsl_matrix_complex_view view;
 
   // rescale min and max
-  min *= this->inv_radius;
-  max *= this->inv_radius;
+  min *= inv_radius;
+  max *= inv_radius;
 
   for(size_t i = 0; i < num; i++)
     for(size_t j = 0; j < num; j++)
       {
 	// copy contents of each block into output
-	work = this->matrix_block
+	work = matrix_block
 	  (
 	   min * pow(max/min,(double)i/(num-1)),
 	   min * pow(max/min,(double)j/(num-1))
@@ -52,24 +52,24 @@ gsl_matrix_complex *matrix_term::matrix(double min, double max, size_t num)
 
 double matrix_term::get_inv_radius()
 {
-  return this->inv_radius;
+  return inv_radius;
 }
 
 double matrix_term::set_inv_radius(double r)
 {
-  this->on_set_inv_radius(r);
-  return this->inv_radius = r;
+  on_set_inv_radius(r);
+  return inv_radius = r;
 }
 
 double matrix_term::get_dielectric_constant()
 {
-  return this->dielectric;
+  return dielectric;
 }
 
 double matrix_term::set_dielectric_constant(double k)
 {
-  this->on_set_dielectric_constant(k);
-  return this->dielectric = k;
+  on_set_dielectric_constant(k);
+  return dielectric = k;
 }
 
 // hooks provided for use by child classes

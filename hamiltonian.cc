@@ -17,123 +17,123 @@
 
 hamiltonian::hamiltonian()
 {
-  this->crystal = NULL;
-  this->impurity = NULL;
-  this->overlap = NULL;
-  this->basis_min = BASIS_MIN;
-  this->basis_max = BASIS_MAX;
-  this->basis_num = BASIS_NUM;
-  this->inv_radius = this->dielectric = 1.0;
-  this->clean_evals = 0;
-  this->evals = NULL;
+  crystal = NULL;
+  impurity = NULL;
+  overlap = NULL;
+  basis_min = BASIS_MIN;
+  basis_max = BASIS_MAX;
+  basis_num = BASIS_NUM;
+  inv_radius = dielectric = 1.0;
+  clean_evals = 0;
+  evals = NULL;
 }
 
 hamiltonian::hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o)
 {
-  this->crystal = NULL;
-  this->impurity = NULL;
-  this->overlap = NULL;
-  this->set_crystal(c);
-  this->set_impurity(p);
-  this->set_overlap(o);
-  this->basis_min = BASIS_MIN;
-  this->basis_max = BASIS_MAX;
-  this->basis_num = BASIS_NUM;
-  this->inv_radius = this->dielectric = 1.0;
-  this->clean_evals = 0;
-  this->evals = NULL;
+  crystal = NULL;
+  impurity = NULL;
+  overlap = NULL;
+  set_crystal(c);
+  set_impurity(p);
+  set_overlap(o);
+  basis_min = BASIS_MIN;
+  basis_max = BASIS_MAX;
+  basis_num = BASIS_NUM;
+  inv_radius = dielectric = 1.0;
+  clean_evals = 0;
+  evals = NULL;
 }
 
 hamiltonian::hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o,
 			 double min, double max, size_t num)
 {
-  this->crystal = NULL;
-  this->impurity = NULL;
-  this->overlap = NULL;
-  this->set_crystal(c);
-  this->set_impurity(p);
-  this->set_overlap(o);
-  this->basis_min = min;
-  this->basis_max = max;
-  this->basis_num = num;
-  this->inv_radius = this->dielectric = 1.0;
-  this->clean_evals = 0;
-  this->evals = NULL;
+  crystal = NULL;
+  impurity = NULL;
+  overlap = NULL;
+  set_crystal(c);
+  set_impurity(p);
+  set_overlap(o);
+  basis_min = min;
+  basis_max = max;
+  basis_num = num;
+  inv_radius = dielectric = 1.0;
+  clean_evals = 0;
+  evals = NULL;
 }
 
 hamiltonian::~hamiltonian()
 {
-  if(this->crystal) delete this->crystal;
-  if(this->impurity) delete this->impurity;
-  if(this->overlap) delete this->overlap;
-  if(this->evals) delete this->evals;
+  if(crystal) delete crystal;
+  if(impurity) delete impurity;
+  if(overlap) delete overlap;
+  if(evals) delete evals;
 }
 
 void hamiltonian::set_crystal(crystal_term *c)
 {
   // load crystal term
-  this->crystal = c;
+  crystal = c;
   // ensure old eigenvalues don't get used
-  this->clean_evals = 0;
+  clean_evals = 0;
   // fetch dielectric constant
-  this->dielectric = c->get_dielectric_constant();
+  dielectric = c->get_dielectric_constant();
   // set dielectric constant and inv_radius from crystal term and
   // propagate to other terms
-  this->inv_radius = c->get_inv_radius();
-  if(this->impurity) this->impurity->set_inv_radius(this->inv_radius);
-  if(this->overlap) this->overlap->set_inv_radius(this->inv_radius);
-  this->dielectric = c->get_dielectric_constant();
-  if(this->impurity)
-    this->impurity->set_dielectric_constant(this->inv_radius);
+  inv_radius = c->get_inv_radius();
+  if(impurity) impurity->set_inv_radius(inv_radius);
+  if(overlap) overlap->set_inv_radius(inv_radius);
+  dielectric = c->get_dielectric_constant();
+  if(impurity)
+    impurity->set_dielectric_constant(inv_radius);
 }
 
 void hamiltonian::set_impurity(impurity_term *p)
 {
   // load impurity term
-  this->impurity = p;
+  impurity = p;
   // ensure old eigenvalues don't get used
-  this->clean_evals = 0;
+  clean_evals = 0;
   // pass in dielectric constant and inv_radius
-  p->set_dielectric_constant(this->dielectric);
-  p->set_inv_radius(this->inv_radius);
+  p->set_dielectric_constant(dielectric);
+  p->set_inv_radius(inv_radius);
 }
 
 void hamiltonian::set_overlap(overlap_term *o)
 {
   // load overlap term
-  this->overlap = o;
+  overlap = o;
   // ensure old eigenvalues don't get used
-  this->clean_evals = 0;
+  clean_evals = 0;
   // pass in inv_radius
-  o->set_inv_radius(this->inv_radius);
+  o->set_inv_radius(inv_radius);
 }
 
 void hamiltonian::set_granularity(double min, double max, size_t num)
 {
   // free eigenvalues if their size needs to be changed
-  if(this->evals && this->basis_num != num)
+  if(evals && basis_num != num)
     {
-      gsl_vector_free(this->evals);
-      this->evals = NULL;
+      gsl_vector_free(evals);
+      evals = NULL;
     }
   // load granularity terms
-  this->basis_min = min;
-  this->basis_max = max;
-  this->basis_num = num;
+  basis_min = min;
+  basis_max = max;
+  basis_num = num;
   // ensure old eigenvalues don't get used
-  this->clean_evals = 0;
+  clean_evals = 0;
 }
 
 double hamiltonian::get_eval(int n)
 {
-  if(!this->clean_evals) this->gen_evals();
-  return gsl_vector_get(this->evals, n);
+  if(!clean_evals) gen_evals();
+  return gsl_vector_get(evals, n);
 }
 
 void hamiltonian::gen_evals()
 {
   // ensure Hamiltonian is fully built
-  if(!this->crystal || !this->impurity || !this->overlap)
+  if(!crystal || !impurity || !overlap)
     {
       printf("Error: eigenvalues requested from incomplete Hamiltonian\n");
       exit(-1);
@@ -141,11 +141,11 @@ void hamiltonian::gen_evals()
 
   // build matrices
   gsl_matrix_complex *c =
-    this->crystal->matrix(this->basis_min, this->basis_max, this->basis_num);
+    crystal->matrix(basis_min, basis_max, basis_num);
   gsl_matrix_complex *p =
-    this->impurity->matrix(this->basis_min, this->basis_max, this->basis_num);
+    impurity->matrix(basis_min, basis_max, basis_num);
   gsl_matrix_complex *o =
-    this->overlap->matrix(this->basis_min, this->basis_max, this->basis_num);
+    overlap->matrix(basis_min, basis_max, basis_num);
   gsl_matrix_complex_add(c,p);
   gsl_matrix_complex_free(p);
   p = NULL;
@@ -165,16 +165,16 @@ void hamiltonian::gen_evals()
     }
 
   // generate eigenvalues
-  if(!this->evals) this->evals = gsl_vector_alloc(c->size1);
+  if(!evals) evals = gsl_vector_alloc(c->size1);
   gsl_eigen_genherm_workspace *w = gsl_eigen_genherm_alloc(c->size1);
-  gsl_eigen_genherm(c,o,this->evals,w);
+  gsl_eigen_genherm(c,o,evals,w);
   gsl_eigen_genherm_free(w);
 
   // sort eigenvalues (c now contains garbage, so we lose nothing by
   // reordering it)
-  gsl_eigen_genhermv_sort(this->evals,c,GSL_EIGEN_SORT_VAL_ASC);
+  gsl_eigen_genhermv_sort(evals,c,GSL_EIGEN_SORT_VAL_ASC);
   // mark eigenvalues as usable
-  this->clean_evals = 1;
+  clean_evals = 1;
 
   // clean up remaining local variables
   gsl_matrix_complex_free(c);
