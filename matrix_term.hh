@@ -313,6 +313,50 @@ protected:
   double C3;
 };
 
+class gauss_HGH_atom;
+
+// Hartwigsen-Goedecker-Hutter pseudopotential impurity term.  Note
+// that only terms corresponding to even angular momentum are included
+// due to the requirement of invarience under inversion.
+class gauss_HGH : public impurity_term
+{
+public:
+  gauss_HGH(elements_t host, elements_t impurity);
+  gsl_matrix_complex *matrix(double min, double max, size_t num);
+protected:
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+  void on_set_inv_radius(double r);
+  void on_set_dielectric_constant(double k);
+  void on_delete();
+  gauss_HGH_atom *host;
+  gauss_HGH_atom *impurity;
+  gauss_coulomb *coulomb;
+};
+
+// Lam-Cohen-Zunger pseudopotential atomic impurity term
+class gauss_HGH_atom : public impurity_term
+{
+public:
+  gauss_HGH_atom(elements_t atom);
+protected:
+  // set atom, using semicore electrons in the atoms which require
+  // them (see the HGH paper, p. 3, Semicore Electrons)
+  void set_semicore(elements_t atom);
+  gsl_matrix_complex *matrix_block(double a1, double a2);
+  int Zion;
+  double rloc;
+  double C1;
+  double C2;
+  double C3;
+  double C4;
+  double h011;
+  double h022;
+  double h033;
+  double h211;
+  double h222;
+  double h233;
+};
+
 // overlap term
 class guass_overlap : public overlap_term
 {

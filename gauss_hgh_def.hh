@@ -56,7 +56,7 @@ gsl_matrix_complex_set(output, 0, 54, gsl_complex_rect(3.5)))/(120120.0*pow(r0,5
 gsl_matrix_complex_set(output, 0, 55, gsl_complex_rect(4.5)+(15*C3*sqrt(2*M_PI)*pow(rloc,2))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 0, 56, gsl_complex_rect(3.5)+(3*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 0, 57, gsl_complex_rect(2.5)+(C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
-gsl_matrix_complex_set(output, 0, 58, gsl_complex_rect(1.5)-(pow(rloc,6)*Zc)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
+gsl_matrix_complex_set(output, 0, 58, gsl_complex_rect(1.5)-(pow(rloc,6)*Zion)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 0, 59, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 0, 60, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 0, 61, gsl_complex_rect((pow(M_PI,2.5)*((8320*sqrt(5)*h033*r0)/(pow(1+2*pow(a1,2)*pow(r0,2), 0));
@@ -159,7 +159,7 @@ gsl_matrix_complex_set(output, 1, 6, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI)*
 gsl_matrix_complex_set(output, 1, 7, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 1, 8, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 1, 9, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 1, 10, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 1, 10, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 1, 11, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 1, 12, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 1, 13, gsl_complex_rect(0, 0));
@@ -207,7 +207,7 @@ gsl_matrix_complex_set(output, 2, 7, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI)*
 gsl_matrix_complex_set(output, 2, 8, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 2, 9, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 2, 10, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 2, 11, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 2, 11, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 2, 12, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 2, 13, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 2, 14, gsl_complex_rect(0, 0));
@@ -371,7 +371,7 @@ gsl_matrix_complex_set(output, 3, 124, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 3, 125, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 3, 126, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 3, 127, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 3, 128, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 3, 128, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 3, 129, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 3, 130, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 3, 131, gsl_complex_rect(0, 0));
@@ -419,7 +419,7 @@ gsl_matrix_complex_set(output, 4, 9, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI)*
 gsl_matrix_complex_set(output, 4, 10, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 4, 11, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 4, 12, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 4, 13, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 4, 13, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 4, 14, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 4, 15, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 4, 16, gsl_complex_rect(0, 0));
@@ -467,7 +467,7 @@ gsl_matrix_complex_set(output, 5, 10, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI)
 gsl_matrix_complex_set(output, 5, 11, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 5, 12, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 5, 13, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 5, 14, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 5, 14, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 5, 15, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 5, 16, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 5, 17, gsl_complex_rect(0, 0));
@@ -564,7 +564,7 @@ gsl_matrix_complex_set(output, 6, 60, gsl_complex_rect(3.5)))/(120120.0*pow(r0,5
 gsl_matrix_complex_set(output, 6, 61, gsl_complex_rect(4.5)+(15*C3*sqrt(2*M_PI)*pow(rloc,2))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 6, 62, gsl_complex_rect(3.5)+(3*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 6, 63, gsl_complex_rect(2.5)+(C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
-gsl_matrix_complex_set(output, 6, 64, gsl_complex_rect(1.5)-(pow(rloc,6)*Zc)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
+gsl_matrix_complex_set(output, 6, 64, gsl_complex_rect(1.5)-(pow(rloc,6)*Zion)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 6, 65, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 6, 66, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 6, 67, gsl_complex_rect((pow(M_PI,2.5)*((8320*sqrt(5)*h033*r0)/(pow(1+2*pow(a1,2)*pow(r0,2), 0));
@@ -667,7 +667,7 @@ gsl_matrix_complex_set(output, 7, 12, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI)
 gsl_matrix_complex_set(output, 7, 13, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 7, 14, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 7, 15, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 7, 16, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 7, 16, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 7, 17, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 7, 18, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 7, 19, gsl_complex_rect(0, 0));
@@ -715,7 +715,7 @@ gsl_matrix_complex_set(output, 8, 13, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI)
 gsl_matrix_complex_set(output, 8, 14, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 8, 15, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 8, 16, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 8, 17, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 8, 17, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 8, 18, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 8, 19, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 8, 20, gsl_complex_rect(0, 0));
@@ -879,7 +879,7 @@ gsl_matrix_complex_set(output, 9, 130, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 9, 131, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 9, 132, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 9, 133, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 9, 134, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 9, 134, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 9, 135, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 9, 136, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 9, 137, gsl_complex_rect(0, 0));
@@ -927,7 +927,7 @@ gsl_matrix_complex_set(output, 10, 15, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 10, 16, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 10, 17, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 10, 18, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 10, 19, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 10, 19, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 10, 20, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 10, 21, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 10, 22, gsl_complex_rect(0, 0));
@@ -975,7 +975,7 @@ gsl_matrix_complex_set(output, 11, 16, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 11, 17, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 11, 18, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 11, 19, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 11, 20, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 11, 20, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 11, 21, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 11, 22, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 11, 23, gsl_complex_rect(0, 0));
@@ -1072,7 +1072,7 @@ gsl_matrix_complex_set(output, 12, 66, gsl_complex_rect(3.5)))/(120120.0*pow(r0,
 gsl_matrix_complex_set(output, 12, 67, gsl_complex_rect(4.5)+(15*C3*sqrt(2*M_PI)*pow(rloc,2))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 12, 68, gsl_complex_rect(3.5)+(3*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 12, 69, gsl_complex_rect(2.5)+(C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
-gsl_matrix_complex_set(output, 12, 70, gsl_complex_rect(1.5)-(pow(rloc,6)*Zc)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
+gsl_matrix_complex_set(output, 12, 70, gsl_complex_rect(1.5)-(pow(rloc,6)*Zion)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 12, 71, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 12, 72, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 12, 73, gsl_complex_rect((pow(M_PI,2.5)*((8320*sqrt(5)*h033*r0)/(pow(1+2*pow(a1,2)*pow(r0,2), 0));
@@ -1175,7 +1175,7 @@ gsl_matrix_complex_set(output, 13, 18, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 13, 19, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 13, 20, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 13, 21, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 13, 22, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 13, 22, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 13, 23, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 13, 24, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 13, 25, gsl_complex_rect(0, 0));
@@ -1223,7 +1223,7 @@ gsl_matrix_complex_set(output, 14, 19, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 14, 20, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 14, 21, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 14, 22, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 14, 23, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 14, 23, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 14, 24, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 14, 25, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 14, 26, gsl_complex_rect(0, 0));
@@ -1387,7 +1387,7 @@ gsl_matrix_complex_set(output, 15, 136, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_P
 gsl_matrix_complex_set(output, 15, 137, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 15, 138, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 15, 139, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 15, 140, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 15, 140, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 15, 141, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 15, 142, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 15, 143, gsl_complex_rect(0, 0));
@@ -1435,7 +1435,7 @@ gsl_matrix_complex_set(output, 16, 21, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 16, 22, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 16, 23, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 16, 24, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 16, 25, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 16, 25, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 16, 26, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 16, 27, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 16, 28, gsl_complex_rect(0, 0));
@@ -1483,7 +1483,7 @@ gsl_matrix_complex_set(output, 17, 22, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 17, 23, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 17, 24, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 17, 25, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 17, 26, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 17, 26, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 17, 27, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 17, 28, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 17, 29, gsl_complex_rect(0, 0));
@@ -1580,7 +1580,7 @@ gsl_matrix_complex_set(output, 18, 72, gsl_complex_rect(3.5)))/(120120.0*pow(r0,
 gsl_matrix_complex_set(output, 18, 73, gsl_complex_rect(4.5)+(15*C3*sqrt(2*M_PI)*pow(rloc,2))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 18, 74, gsl_complex_rect(3.5)+(3*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 18, 75, gsl_complex_rect(2.5)+(C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
-gsl_matrix_complex_set(output, 18, 76, gsl_complex_rect(1.5)-(pow(rloc,6)*Zc)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
+gsl_matrix_complex_set(output, 18, 76, gsl_complex_rect(1.5)-(pow(rloc,6)*Zion)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 18, 77, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 18, 78, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 18, 79, gsl_complex_rect((pow(M_PI,2.5)*((8320*sqrt(5)*h033*r0)/(pow(1+2*pow(a1,2)*pow(r0,2), 0));
@@ -1683,7 +1683,7 @@ gsl_matrix_complex_set(output, 19, 24, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 19, 25, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 19, 26, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 19, 27, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 19, 28, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 19, 28, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 19, 29, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 19, 30, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 19, 31, gsl_complex_rect(0, 0));
@@ -1731,7 +1731,7 @@ gsl_matrix_complex_set(output, 20, 25, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 20, 26, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 20, 27, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 20, 28, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 20, 29, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 20, 29, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 20, 30, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 20, 31, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 20, 32, gsl_complex_rect(0, 0));
@@ -1895,7 +1895,7 @@ gsl_matrix_complex_set(output, 21, 142, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_P
 gsl_matrix_complex_set(output, 21, 143, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 21, 144, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 21, 145, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 21, 146, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 21, 146, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 21, 147, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 21, 148, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 21, 149, gsl_complex_rect(0, 0));
@@ -1943,7 +1943,7 @@ gsl_matrix_complex_set(output, 22, 27, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 22, 28, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 22, 29, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 22, 30, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 22, 31, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 22, 31, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 22, 32, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 22, 33, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 22, 34, gsl_complex_rect(0, 0));
@@ -1991,7 +1991,7 @@ gsl_matrix_complex_set(output, 23, 28, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 23, 29, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 23, 30, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 23, 31, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 23, 32, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 23, 32, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 23, 33, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 23, 34, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 23, 35, gsl_complex_rect(0, 0));
@@ -2088,7 +2088,7 @@ gsl_matrix_complex_set(output, 24, 78, gsl_complex_rect(3.5)))/(120120.0*pow(r0,
 gsl_matrix_complex_set(output, 24, 79, gsl_complex_rect(4.5)+(15*C3*sqrt(2*M_PI)*pow(rloc,2))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 24, 80, gsl_complex_rect(3.5)+(3*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 24, 81, gsl_complex_rect(2.5)+(C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
-gsl_matrix_complex_set(output, 24, 82, gsl_complex_rect(1.5)-(pow(rloc,6)*Zc)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
+gsl_matrix_complex_set(output, 24, 82, gsl_complex_rect(1.5)-(pow(rloc,6)*Zion)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 24, 83, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 24, 84, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 24, 85, gsl_complex_rect((pow(M_PI,2.5)*((8320*sqrt(5)*h033*r0)/(pow(1+2*pow(a1,2)*pow(r0,2), 0));
@@ -2191,7 +2191,7 @@ gsl_matrix_complex_set(output, 25, 30, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 25, 31, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 25, 32, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 25, 33, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 25, 34, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 25, 34, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 25, 35, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 25, 36, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 25, 37, gsl_complex_rect(0, 0));
@@ -2239,7 +2239,7 @@ gsl_matrix_complex_set(output, 26, 31, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 26, 32, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 26, 33, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 26, 34, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 26, 35, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 26, 35, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 26, 36, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 26, 37, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 26, 38, gsl_complex_rect(0, 0));
@@ -2403,7 +2403,7 @@ gsl_matrix_complex_set(output, 27, 148, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_P
 gsl_matrix_complex_set(output, 27, 149, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 27, 150, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 27, 151, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 27, 152, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 27, 152, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 27, 153, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 27, 154, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 27, 155, gsl_complex_rect(0, 0));
@@ -2451,7 +2451,7 @@ gsl_matrix_complex_set(output, 28, 33, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 28, 34, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 28, 35, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 28, 36, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 28, 37, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 28, 37, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 28, 38, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 28, 39, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 28, 40, gsl_complex_rect(0, 0));
@@ -2499,7 +2499,7 @@ gsl_matrix_complex_set(output, 29, 34, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 29, 35, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 29, 36, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 29, 37, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 29, 38, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 29, 38, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 29, 39, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 29, 40, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 29, 41, gsl_complex_rect(0, 0));
@@ -2596,7 +2596,7 @@ gsl_matrix_complex_set(output, 30, 84, gsl_complex_rect(3.5)))/(120120.0*pow(r0,
 gsl_matrix_complex_set(output, 30, 85, gsl_complex_rect(4.5)+(15*C3*sqrt(2*M_PI)*pow(rloc,2))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 30, 86, gsl_complex_rect(3.5)+(3*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 30, 87, gsl_complex_rect(2.5)+(C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
-gsl_matrix_complex_set(output, 30, 88, gsl_complex_rect(1.5)-(pow(rloc,6)*Zc)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
+gsl_matrix_complex_set(output, 30, 88, gsl_complex_rect(1.5)-(pow(rloc,6)*Zion)/((pow(a1,2)+pow(a2,2))*sqrt(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2))))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 30, 89, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 30, 90, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 30, 91, gsl_complex_rect((pow(M_PI,2.5)*((8320*sqrt(5)*h033*r0)/(pow(1+2*pow(a1,2)*pow(r0,2), 0));
@@ -2699,7 +2699,7 @@ gsl_matrix_complex_set(output, 31, 36, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 31, 37, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 31, 38, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 31, 39, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 31, 40, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 31, 40, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 31, 41, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 31, 42, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 31, 43, gsl_complex_rect(0, 0));
@@ -2747,7 +2747,7 @@ gsl_matrix_complex_set(output, 32, 37, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 32, 38, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 32, 39, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 32, 40, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 32, 41, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 32, 41, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 32, 42, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 32, 43, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 32, 44, gsl_complex_rect(0, 0));
@@ -2911,7 +2911,7 @@ gsl_matrix_complex_set(output, 33, 154, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_P
 gsl_matrix_complex_set(output, 33, 155, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 33, 156, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 33, 157, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 33, 158, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 33, 158, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 33, 159, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 33, 160, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 33, 161, gsl_complex_rect(0, 0));
@@ -2959,7 +2959,7 @@ gsl_matrix_complex_set(output, 34, 39, gsl_complex_rect(6.5)+(945*C3*sqrt(2*M_PI
 gsl_matrix_complex_set(output, 34, 40, gsl_complex_rect(5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 34, 41, gsl_complex_rect(4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2), 0));
 gsl_matrix_complex_set(output, 34, 42, gsl_complex_rect(3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2), 0));
-gsl_matrix_complex_set(output, 34, 43, gsl_complex_rect(2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2), 0));
+gsl_matrix_complex_set(output, 34, 43, gsl_complex_rect(2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2), 0));
 gsl_matrix_complex_set(output, 34, 44, gsl_complex_rect(3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2), 0));
 gsl_matrix_complex_set(output, 34, 45, gsl_complex_rect(2)))/(2.0*pow(rloc,6))))/dielectric, 0));
 gsl_matrix_complex_set(output, 34, 46, gsl_complex_rect(0, 0));
@@ -2998,4 +2998,4 @@ gsl_matrix_complex_set(output, 35, 31, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 35, 32, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 35, 33, gsl_complex_rect(0, 0));
 gsl_matrix_complex_set(output, 35, 34, gsl_complex_rect(0, 0));
-gsl_matrix_complex_set(output, 35, 35, gsl_complex_rect((2*((135*pow(M_PI,2.5)*pow(r2,8)*sqrt((1+2*pow(a2,2)*pow(r2,2))/(4+8*pow(a1,2)*pow(r2,2)))*(9009*h211*pow(1+2*pow(a1,2)*pow(r2,2),2)*pow(1+2*pow(a2,2)*pow(r2,2),2)+20*(429*sqrt(7)*h212*(1+2*pow(a1,2)*pow(r2,2))*(1+2*pow(a2,2)*pow(r2,2))*(1+(pow(a1,2)+pow(a2,2))*pow(r2,2))+42*sqrt(1001)*h213*(1+2*(pow(a1,2)+pow(a2,2))*pow(r2,2)+2*(pow(a1,4)+pow(a2,4))*pow(r2,4))\+5*(143*h222*(1+2*pow(a1,2)*pow(r2,2))*(1+2*pow(a2,2)*pow(r2,2))+28*(7*h233+sqrt(143)*h223*(1+(pow(a1,2)+pow(a2,2))*pow(r2,2)))))))/(1.025024e6*pow(1+2*pow(a1,2)*pow(r2,2),4)*pow(r2+2*pow(a2,2)*pow(r2,3),5))+((10395*C4*sqrt(2*M_PI))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2),6.5)+(945*C3*sqrt(2*M_PI)*pow(rloc,2))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2),5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2),4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2),3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2),2)*pow(rloc,4))*Zc)/(pow(pow(a1,2)+pow(a2,2),3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2),2)))/(2.0*pow(rloc,6))))/dielectric, 0));
+gsl_matrix_complex_set(output, 35, 35, gsl_complex_rect((2*((135*pow(M_PI,2.5)*pow(r2,8)*sqrt((1+2*pow(a2,2)*pow(r2,2))/(4+8*pow(a1,2)*pow(r2,2)))*(9009*h211*pow(1+2*pow(a1,2)*pow(r2,2),2)*pow(1+2*pow(a2,2)*pow(r2,2),2)+20*(429*sqrt(7)*h212*(1+2*pow(a1,2)*pow(r2,2))*(1+2*pow(a2,2)*pow(r2,2))*(1+(pow(a1,2)+pow(a2,2))*pow(r2,2))+42*sqrt(1001)*h213*(1+2*(pow(a1,2)+pow(a2,2))*pow(r2,2)+2*(pow(a1,4)+pow(a2,4))*pow(r2,4))\+5*(143*h222*(1+2*pow(a1,2)*pow(r2,2))*(1+2*pow(a2,2)*pow(r2,2))+28*(7*h233+sqrt(143)*h223*(1+(pow(a1,2)+pow(a2,2))*pow(r2,2)))))))/(1.025024e6*pow(1+2*pow(a1,2)*pow(r2,2),4)*pow(r2+2*pow(a2,2)*pow(r2,3),5))+((10395*C4*sqrt(2*M_PI))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2),6.5)+(945*C3*sqrt(2*M_PI)*pow(rloc,2))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2),5.5)+(105*C2*sqrt(2*M_PI)*pow(rloc,4))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2),4.5)+(15*C1*sqrt(2*M_PI)*pow(rloc,6))/pow(2*(pow(a1,2)+pow(a2,2))+pow(rloc,-2),3.5)-(pow(rloc,5)*(2+10*(pow(a1,2)+pow(a2,2))*pow(rloc,2)+15*pow(pow(a1,2)+pow(a2,2),2)*pow(rloc,4))*Zion)/(pow(pow(a1,2)+pow(a2,2),3.5)*sqrt(2+1/((pow(a1,2)+pow(a2,2))*pow(rloc,2)))*pow(1+2*(pow(a1,2)+pow(a2,2))*pow(rloc,2),2)))/(2.0*pow(rloc,6))))/dielectric, 0));
