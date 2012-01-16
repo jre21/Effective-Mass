@@ -24,6 +24,9 @@ $line =~ s/Power/pow/g;
 $line =~ s/Sqrt/sqrt/g;
 $line =~ s/\.([^\d])/.0$1/g;
 $line =~ s/\bE\b/M_E/g;
+# The following use GSL calls
+$line =~ s/Erfc/gsl_sf_erfc/g;
+$line =~ s/Erf/gsl_sf_erf/g;
 
 while($line ne "")
 {
