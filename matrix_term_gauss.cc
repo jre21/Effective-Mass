@@ -558,7 +558,7 @@ gsl_matrix_complex *gauss_LCZ_atom::matrix_block(double a1, double a2)
 // ######################### gauss_HGH_atom ##########################
 gauss_HGH_atom::gauss_HGH_atom(elements_t atom)
 {
-  set_d_core(atom);
+  set_semicore(atom);
 }
 
 void gauss_HGH_atom::set_semicore(elements_t atom)

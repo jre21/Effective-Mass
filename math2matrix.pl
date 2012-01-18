@@ -15,7 +15,7 @@ while (<STDIN>)
 {
     # Add next line of input to line, first removing whitespace and
     # trailing backslashes.
-    s/\s*|\\$//g;
+    s/\s*|\\\\$//g;
     $line .= $_;
 }
 
@@ -79,7 +79,7 @@ while($line ne "")
 
 	# If Power is used, consume and add to output so we don't
 	# parse the internal comma.
-	while($line =~ /^([^,]*pow(\(((?:(?>[^()]+)|(?2))*)\)))(?'rem'.*)$/)
+	while($line =~ /^([^,]*?pow(\(((?:(?>[^()]+)|(?2))*)\)))(?'rem'.*)$/)
 	{
 	    if($output[2] ne "0") { $output[2] .= $1; }
 	    if($output[3] ne "0") { $output[3] .= $1; }

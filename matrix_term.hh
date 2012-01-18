@@ -349,16 +349,18 @@ protected:
   double C2;
   double C3;
   double C4;
+  double r0;
   double h011;
   double h022;
   double h033;
+  double r2;
   double h211;
   double h222;
   double h233;
 };
 
 // overlap term
-class guass_overlap : public overlap_term
+class gauss_overlap : public overlap_term
 {
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
