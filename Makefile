@@ -45,6 +45,9 @@ $(BIN)	:	$(OBJ)
 .PHONY	:	objs
 objs	:	$(OBJ)
 
+$(ODIR)/matrix_term_%.o : matrix_term_%.cc matrix_term.hh defs.hh
+	$(CC) -c -o $@ $< $(CFLAGS)
+
 $(ODIR)/%.o : %.cc $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 

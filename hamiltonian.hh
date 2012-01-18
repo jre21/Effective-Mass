@@ -36,8 +36,10 @@ public:
   void set_granularity(double min, double max, size_t num);
 
   // Get the n'th eigenvalue, recalculating all eigenvalues if
-  // necessary.
+  // necessary.  In the first form, or if convert is non-zero, convert
+  // from Rydberg to meV.
   double get_eval(int n);
+  double get_eval(int n, int convert);
 protected:
   // generate eigenvalues
   void gen_evals();

@@ -15,6 +15,6 @@ int main(int argc, char **argv)
      new exp_overlap()
     );
   for(int i = 0; i < 5; i++)
-    printf("%g\n", ham.get_eval(6*i));
+    printf("%g\n", ham.get_eval(6*i, 0));
   return 0;
 }

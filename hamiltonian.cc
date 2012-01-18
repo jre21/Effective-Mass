@@ -8,11 +8,12 @@
 
 #include "hamiltonian.hh"
 #include "matrix_term.hh"
+#include "defs.hh"
 
 // default basis granularity
 #define BASIS_MIN 1e-2
 #define BASIS_MAX 1e2
-#define BASIS_NUM 30
+#define BASIS_NUM 20
 
 
 hamiltonian::hamiltonian()
@@ -126,8 +127,13 @@ void hamiltonian::set_granularity(double min, double max, size_t num)
 
 double hamiltonian::get_eval(int n)
 {
+  return get_eval(n, 1);
+}
+
+double hamiltonian::get_eval(int n, int convert)
+{
   if(!clean_evals) gen_evals();
-  return gsl_vector_get(evals, n);
+  return (convert ? MEV_PER_RYD : 1.0) * gsl_vector_get(evals, n);
 }
 
 void hamiltonian::gen_evals()
