@@ -555,6 +555,54 @@ gsl_matrix_complex *gauss_LCZ_atom::matrix_block(double a1, double a2)
 }
 
 
+// ############################ gauss_HGH ############################
+gauss_HGH::gauss_HGH(elements_t _host, elements_t _impurity)
+{
+  host = new gauss_HGH_atom(_host);
+  impurity = new gauss_HGH_atom(_impurity);
+  coulomb = new gauss_coulomb();
+}
+
+gsl_matrix_complex *gauss_HGH::matrix(double min, double max, size_t num)
+{
+  gsl_matrix_complex *h = host->matrix(min, max, num),
+    *i = impurity->matrix(min, max, num),
+    *c = coulomb->matrix(min, max, num);
+  gsl_matrix_complex_sub(h,i);
+  gsl_matrix_complex_add(h,c);
+  gsl_matrix_complex_free(i);
+  gsl_matrix_complex_free(c);
+  return h;
+}
+
+// no-op because blocks are calculated in the lower-level terms
+gsl_matrix_complex *gauss_HGH::matrix_block(double a1, double a2)
+{
+  return NULL;
+}
+
+void gauss_HGH::on_set_inv_radius(double r)
+{
+  host->set_inv_radius(r);
+  impurity->set_inv_radius(r);
+  coulomb->set_inv_radius(r);
+}
+
+void gauss_HGH::on_set_dielectric_constant(double k)
+{
+  host->set_dielectric_constant(k);
+  impurity->set_dielectric_constant(k);
+  coulomb->set_dielectric_constant(k);
+}
+
+void gauss_HGH::on_delete()
+{
+  delete host;
+  delete impurity;
+  delete coulomb;
+}
+
+
 // ######################### gauss_HGH_atom ##########################
 gauss_HGH_atom::gauss_HGH_atom(elements_t atom)
 {

@@ -341,6 +341,13 @@ void exp_LCZ_atom::set_d_core(elements_t atom)
 {
   switch(atom)
     {
+      // dummy value, for debugging purposes
+    case H:
+      Zc = 0;
+      C1 = 0;
+      C2 = 0;
+      C3 = 0;
+      break;
     case Li:
       Zc = 2;
       C1 = 2.9990;

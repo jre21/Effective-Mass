@@ -10,11 +10,18 @@ int main(int argc, char **argv)
 {
   hamiltonian ham
     (
-     new exp_zb(1.0, 0.0, 0.0, 0.0, 1.0),
+     new exp_zb(GaN),
      new exp_coulomb(),
      new exp_overlap()
     );
-  for(int i = 0; i < 5; i++)
-    printf("%g\n", ham.get_eval(6*i, 0));
+  printf("%g\n", ham.get_eval(0));
+  ham.set_impurity(new exp_LCZ(H, H));
+  printf("%g\n", ham.get_eval(0));
+  ham.set_impurity(new exp_LCZ(Ga, Zn));
+  printf("%g\n", ham.get_eval(0));
+  ham.set_impurity(new gauss_LCZ(Ga, Zn));
+  printf("%g\n", ham.get_eval(0));
+  ham.set_impurity(new gauss_HGH(Ga, Zn));
+  printf("%g\n", ham.get_eval(0));
   return 0;
 }

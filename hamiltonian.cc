@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <gsl/gsl_math.h>
 #include <gsl/gsl_complex_math.h>
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
@@ -34,13 +35,13 @@ hamiltonian::hamiltonian(crystal_term *c, impurity_term *p, overlap_term *o)
   crystal = NULL;
   impurity = NULL;
   overlap = NULL;
+  inv_radius = dielectric = 1.0;
   set_crystal(c);
   set_impurity(p);
   set_overlap(o);
   basis_min = BASIS_MIN;
   basis_max = BASIS_MAX;
   basis_num = BASIS_NUM;
-  inv_radius = dielectric = 1.0;
   clean_evals = 0;
   evals = NULL;
 }
@@ -81,11 +82,13 @@ void hamiltonian::set_crystal(crystal_term *c)
   // set dielectric constant and inv_radius from crystal term and
   // propagate to other terms
   inv_radius = c->get_inv_radius();
-  if(impurity) impurity->set_inv_radius(inv_radius);
-  if(overlap) overlap->set_inv_radius(inv_radius);
   dielectric = c->get_dielectric_constant();
   if(impurity)
-    impurity->set_dielectric_constant(inv_radius);
+    {
+      impurity->set_inv_radius(inv_radius);
+      impurity->set_dielectric_constant(inv_radius);
+    }
+  if(overlap) overlap->set_inv_radius(inv_radius);
 }
 
 void hamiltonian::set_impurity(impurity_term *p)
@@ -193,7 +196,7 @@ void hamiltonian::gen_evals()
 // the nonhermiticity index of the matrix.
 double hamiltonian::nonhermiticity(gsl_matrix_complex *m)
 {
-#define THRESHOLD 1e-20
+#define THRESHOLD 1e-15
   double norm = 0.0, addend;
   for(size_t i = 0; i < m->size1; i++)
     for(size_t j = i; j < m->size1; j++)
@@ -206,15 +209,21 @@ double hamiltonian::nonhermiticity(gsl_matrix_complex *m)
 	    gsl_complex_conjugate(gsl_matrix_complex_get(m,j,i))
 	   )
 	  )
-	  / gsl_complex_abs2
+	  / GSL_MAX_DBL
 	  (
-	   gsl_complex_add
-	   (
-	    gsl_matrix_complex_get(m,i,j),
-	    gsl_matrix_complex_get(m,j,i)
-	   )
+	   gsl_complex_abs2(gsl_matrix_complex_get(m,i,j)),
+	   gsl_complex_abs2(gsl_matrix_complex_get(m,j,i))
 	  );
-	if(addend > THRESHOLD) norm += addend;
+	if(addend > THRESHOLD)
+	  {
+	    norm += addend;
+	    printf("%ld, %ld; %g, %g; %g, %g\n", i, j,
+		   GSL_REAL(gsl_matrix_complex_get(m,i,j)),
+		   GSL_IMAG(gsl_matrix_complex_get(m,i,j)),
+		   GSL_REAL(gsl_matrix_complex_get(m,j,i)),
+		   GSL_IMAG(gsl_matrix_complex_get(m,j,i))
+		   );
+	  }
       }
   return norm;
 }
