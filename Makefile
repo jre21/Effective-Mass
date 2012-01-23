@@ -22,7 +22,7 @@ DEFNS	= exp_zb_def.hh exp_wz_def.hh exp_gwz_def.hh exp_coulomb_def.hh \
 	gauss_lcz_def.hh gauss_hgh_def.hh gauss_overlap_def.hh
 
 
-DEPS	= $(DEFNS) hamiltonian.hh matrix_term.hh enums.hh defs.hh
+DEPS	= hamiltonian.hh matrix_term.hh enums.hh defs.hh
 
 ODIR	= obj
 _OBJ	= main.o hamiltonian.o matrix_term.o \
@@ -45,7 +45,7 @@ $(BIN)	:	$(OBJ)
 .PHONY	:	objs
 objs	:	$(OBJ)
 
-$(ODIR)/matrix_term_%.o : matrix_term_%.cc matrix_term.hh defs.hh
+$(ODIR)/matrix_term_%.o : matrix_term_%.cc $(DEFNS) matrix_term.hh defs.hh
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 $(ODIR)/%.o : %.cc $(DEPS)

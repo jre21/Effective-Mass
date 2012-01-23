@@ -15,9 +15,11 @@ int main(int argc, char **argv)
      new exp_overlap()
     );
   printf("%g\n", ham.get_eval(0));
-  ham.set_impurity(new exp_LCZ(H, H));
-  printf("%g\n", ham.get_eval(0));
   ham.set_impurity(new exp_LCZ(Ga, Zn));
+  printf("%g\n", ham.get_eval(0));
+  ham.set_crystal(new gauss_zb(GaN));
+  ham.set_overlap(new gauss_overlap());
+  ham.set_impurity(new gauss_coulomb());
   printf("%g\n", ham.get_eval(0));
   ham.set_impurity(new gauss_LCZ(Ga, Zn));
   printf("%g\n", ham.get_eval(0));
