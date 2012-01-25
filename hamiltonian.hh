@@ -35,6 +35,9 @@ public:
   // values in a geometric progression.
   void set_granularity(double min, double max, size_t num);
 
+  // Return the number of eigenvalues
+  int num_evals();
+
   // Get the n'th eigenvalue, recalculating all eigenvalues if
   // necessary.  In the first form, or if convert is non-zero, convert
   // from Rydberg to meV.

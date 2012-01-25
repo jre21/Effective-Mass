@@ -128,6 +128,11 @@ void hamiltonian::set_granularity(double min, double max, size_t num)
   clean_evals = 0;
 }
 
+int hamiltonian::num_evals()
+{
+  return basis_num * 36;
+}
+
 double hamiltonian::get_eval(int n)
 {
   return get_eval(n, 1);
