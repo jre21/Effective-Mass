@@ -103,40 +103,16 @@ exp_wz::exp_wz(crystals_t c)
       d3 = -7.5 * RYD_PER_MEV;
       dielectric = 9.67;
       break;
-    case InN1:
-      A1 = 12.88;
-      A2 = 11.5;
-      A3 = -12.34;
-      A4 = -10.6;
-      A5 = 0.2;
-      A6 = 0.3;
-      d1 = -22.4 * RYD_PER_MEV;
-      d2 = 3.1 * RYD_PER_MEV;
-      d3 = -2.4 * RYD_PER_MEV;
-      dielectric = 14;
-      break;
-    case InN2:
-      A1 = 12.88;
-      A2 = 11.7;
-      A3 = -12.34;
-      A4 = -10.6;
-      A5 = 0.035;
-      A6 = 1.12;
-      d1 = -22.4 * RYD_PER_MEV;
-      d2 = 3.1 * RYD_PER_MEV;
-      d3 = -2.4 * RYD_PER_MEV;
-      dielectric = 14;
-      break;
-    case InN3:
-      A1 = 12.88;
-      A2 = 11.5;
-      A3 = -12.34;
-      A4 = -10.845;
-      A5 = 0.035;
-      A6 = 1.08;
-      d1 = -22.4 * RYD_PER_MEV;
-      d2 = 3.1 * RYD_PER_MEV;
-      d3 = -2.4 * RYD_PER_MEV;
+    case InN:
+      A1 = 15.72;
+      A2 = 0.7;
+      A3 = -15.23;
+      A4 = 5.79;
+      A5 = 5.9;
+      A6 = 4.58;
+      d1 = 14.8 * RYD_PER_MEV;
+      d2 = 3.4 * RYD_PER_MEV;
+      d3 = -2.2 * RYD_PER_MEV;
       dielectric = 14;
       break;
     default:
@@ -283,8 +259,7 @@ gsl_matrix_complex *exp_wang::matrix_block(double a1, double a2)
 
 
 // ############################# exp_LCZ #############################
-exp_LCZ::exp_LCZ
-(elements_t _host, elements_t _impurity)
+exp_LCZ::exp_LCZ(elements_t _host, elements_t _impurity)
 {
   host = new exp_LCZ_atom(_host);
   impurity = new exp_LCZ_atom(_impurity);
@@ -341,13 +316,6 @@ void exp_LCZ_atom::set_d_core(elements_t atom)
 {
   switch(atom)
     {
-      // dummy value, for debugging purposes
-    case H:
-      Zc = 0;
-      C1 = 0;
-      C2 = 0;
-      C3 = 0;
-      break;
     case Li:
       Zc = 2;
       C1 = 2.9990;

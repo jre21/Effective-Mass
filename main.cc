@@ -10,20 +10,18 @@ int main(int argc, char **argv)
 {
   hamiltonian ham
     (
-     new exp_zb(GaN),
+     new exp_wz(GaN),
      new exp_coulomb(),
      new exp_overlap()
     );
-  printf("%g\n", ham.get_eval(0));
-  ham.set_impurity(new exp_LCZ(Ga, Zn));
-  printf("%g\n", ham.get_eval(0));
-  ham.set_crystal(new gauss_zb(GaN));
-  ham.set_overlap(new gauss_overlap());
-  ham.set_impurity(new gauss_coulomb());
-  printf("%g\n", ham.get_eval(0));
-  ham.set_impurity(new gauss_LCZ(Ga, Zn));
-  printf("%g\n", ham.get_eval(0));
-  ham.set_impurity(new gauss_HGH(Ga, Zn));
-  printf("%g\n", ham.get_eval(0));
+  printf("GaN: %g\n", ham.get_eval(0));
+  ham.set_crystal(new exp_wz(AlN));
+  printf("AlN: %g\n", ham.get_eval(0));
+  ham.set_crystal(new exp_wz(InN));
+  printf("InN: %g\n", ham.get_eval(0));
+  ham.set_crystal(new exp_gwz(ZnGeN2));
+  printf("AlN: %g\n", ham.get_eval(0));
+  ham.set_crystal(new exp_gwz(ZnSnN2));
+  printf("AlN: %g\n", ham.get_eval(0));
   return 0;
 }
