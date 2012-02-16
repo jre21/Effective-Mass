@@ -20,8 +20,8 @@ int main(int argc, char **argv)
   ham.set_crystal(new exp_wz(InN));
   printf("InN: %g\n", ham.get_eval(0));
   ham.set_crystal(new exp_gwz(ZnGeN2));
-  printf("AlN: %g\n", ham.get_eval(0));
+  printf("ZnGeN2: %g\n", ham.get_eval(0));
   ham.set_crystal(new exp_gwz(ZnSnN2));
-  printf("AlN: %g\n", ham.get_eval(0));
+  printf("ZnSeN2: %g\n", ham.get_eval(0));
   return 0;
 }

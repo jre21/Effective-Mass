@@ -77,8 +77,6 @@ void hamiltonian::set_crystal(crystal_term *c)
   crystal = c;
   // ensure old eigenvalues don't get used
   clean_evals = 0;
-  // fetch dielectric constant
-  dielectric = c->get_dielectric_constant();
   // set dielectric constant and inv_radius from crystal term and
   // propagate to other terms
   inv_radius = c->get_inv_radius();
@@ -86,7 +84,7 @@ void hamiltonian::set_crystal(crystal_term *c)
   if(impurity)
     {
       impurity->set_inv_radius(inv_radius);
-      impurity->set_dielectric_constant(inv_radius);
+      impurity->set_dielectric_constant(dielectric);
     }
   if(overlap) overlap->set_inv_radius(inv_radius);
 }
