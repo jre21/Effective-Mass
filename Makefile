@@ -31,7 +31,7 @@ OBJ	= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 BIN	= evals.bin
 
-GENERATED = $(OBJ) $(BIN) $(DEFNS)
+GENERATED = $(OBJ) $(BIN)
 
 .PHONY	:	all
 all	:	$(BIN)
@@ -45,14 +45,20 @@ $(BIN)	:	$(OBJ)
 .PHONY	:	objs
 objs	:	$(OBJ)
 
-$(ODIR)/matrix_term_%.o : matrix_term_%.cc $(DEFNS) matrix_term.hh defs.hh
-	$(CC) -c -o $@ $< $(CFLAGS)
-
 $(ODIR)/%.o : %.cc $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 %_def.hh :	%.txt math2matrix.pl
 	./math2matrix.pl < $< > $@
+
+$(ODIR)/matrix_term_%.o : matrix_term_%.cc matrix_term.hh defs.hh $(DEFNS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+# regenerate all the _def.hh files
+# For some reason, the above command errors out rather than generating
+# them when they don't exist.
+.PHONY	:	defns
+defns	:	$(DEFNS)
 
 .PHONY	:	gdb
 gdb	:	$(BIN)
