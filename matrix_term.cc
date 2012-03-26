@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdio.h>
 
 #include <gsl/gsl_matrix.h>
 
@@ -76,3 +77,74 @@ double matrix_term::set_dielectric_constant(double k)
 void matrix_term::on_set_inv_radius(double r) {}
 void matrix_term::on_set_dielectric_constant(double k) {}
 void matrix_term::on_delete() {}
+
+// ########################### crystal_term ##########################
+double crystal_term::get_parameter(crystal_parameters_t param)
+{
+  double ret = _get_parameter(param);
+  if(1.0 / 0.0 == ret)
+    {
+      // mismatch between crystal term type and parameter
+      printf("Error: crystal_term::get_parameter(): invalid parameter");
+      exit(-1);
+    }
+  return ret;
+}
+
+double crystal_term::set_parameter(crystal_parameters_t param)
+{
+  double ret = _set_parameter(param);
+  if(1.0 / 0.0 == ret)
+    {
+      // mismatch between crystal term type and parameter
+      printf("Error: crystal_term::set_parameter(): invalid parameter");
+      exit(-1);
+    }
+  return ret;
+}
+
+double crystal_term::_get_parameter(crystal_parameters_t param)
+{
+  return 1.0 / 0.0;
+}
+
+double crystal_term::_set_parameter(crystal_parameters_t param)
+{
+  return 1.0 / 0.0;
+}
+
+// ########################## impurity_term ##########################
+double impurity_term::get_parameter(impurity_parameters_t param)
+{
+  double ret = _get_parameter(param);
+  if(1.0 / 0.0 == ret)
+    {
+      // mismatch between impurity term type and parameter
+      printf("Error: impurity_term::get_parameter(): invalid parameter");
+      exit(-1);
+    }
+  return ret;
+}
+
+double impurity_term::set_parameter(impurity_parameters_t param)
+{
+  double ret = _set_parameter(param);
+  if(1.0 / 0.0 == ret)
+    {
+      // mismatch between impurity term type and parameter
+      printf("Error: impurity_term::set_parameter(): invalid parameter");
+      exit(-1);
+    }
+  return ret;
+}
+
+double impurity_term::_get_parameter(impurity_parameters_t param)
+{
+  return 1.0 / 0.0;
+}
+
+double impurity_term::_set_parameter(impurity_parameters_t param)
+{
+  return 1.0 / 0.0;
+}
+

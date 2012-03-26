@@ -56,8 +56,30 @@ protected:
 };
 
 // the basic types of matrix terms
-class crystal_term   : public matrix_term {};
-class impurity_term  : public matrix_term {};
+class crystal_term   : public matrix_term
+{
+public:
+  double get_parameter(crystal_parameters_t param);
+  double set_parameter(crystal_parameters_t param);
+private:
+  // These should signal an invalid parameter by returning 1.0/0.0
+  // (i.e., +infinity)
+  virtual double _get_parameter(crystal_parameters_t param);
+  virtual double _set_parameter(crystal_parameters_t param);
+};
+
+class impurity_term  : public matrix_term
+{
+public:
+  double get_parameter(impurity_parameters_t param);
+  double set_parameter(impurity_parameters_t param);
+private:
+  // These should signal an invalid parameter by returning 1.0/0.0
+  // (i.e., +infinity)
+  virtual double _get_parameter(impurity_parameters_t param);
+  virtual double _set_parameter(impurity_parameters_t param);
+};
+
 class overlap_term   : public matrix_term {};
 
 

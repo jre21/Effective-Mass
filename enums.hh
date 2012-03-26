@@ -23,4 +23,16 @@ enum crystals_t
 
 const char *crystals_to_string(crystals_t c);
 
+enum crystal_parameters_t
+  {
+    g1, g2, g3, d0,
+    A1, A2, A3, A4, A5, A6, d1, d2, d3,
+    B1, B2, B3, C1, C2, C3, D1, D2, D3, d1c, d2c, d1so, d2so, d3so
+  };
+
+enum impurity_parameters_t
+  {
+    dielectric_ratio
+  };
+
 #endif // _ENUMS_HH
