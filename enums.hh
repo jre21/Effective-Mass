@@ -25,14 +25,15 @@ const char *crystals_to_string(crystals_t c);
 
 enum crystal_parameters_t
   {
-    g1, g2, g3, d0,
-    A1, A2, A3, A4, A5, A6, d1, d2, d3,
-    B1, B2, B3, C1, C2, C3, D1, D2, D3, d1c, d2c, d1so, d2so, d3so
+    _g1, _g2, _g3, _d0,
+    _A1, _A2, _A3, _A4, _A5, _A6, _d1, _d2, _d3,
+    _B1, _B2, _B3, _C1, _C2, _C3, _D1, _D2, _D3,
+    _d1c, _d2c, _d1so, _d2so, _d3so
   };
 
 enum impurity_parameters_t
   {
-    dielectric_ratio
+    _dielectric_ratio
   };
 
 #endif // _ENUMS_HH

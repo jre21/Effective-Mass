@@ -56,6 +56,30 @@ gsl_matrix_complex *exp_zb::matrix_block(double a1, double a2)
   return output;
 }
 
+double exp_zb::_get_parameter(crystal_parameters_t param)
+{
+  switch(param)
+    {
+    case _g1: return g1;
+    case _g2: return g2;
+    case _g3: return g3;
+    case _d0: return d0;
+    default: return 1.0 / 0.0;
+    }
+}
+
+double exp_zb::_set_parameter(crystal_parameters_t param, double val)
+{
+  switch(param)
+    {
+    case _g1: return g1 = val;
+    case _g2: return g2 = val;
+    case _g3: return g3 = val;
+    case _d0: return d0 = val;
+    default: return 1.0 / 0.0;
+    }
+}
+
 
 // ############################## exp_wz #############################
 exp_wz::exp_wz(double _A1, double _A2, double _A3, double _A4, double _A5,
@@ -122,13 +146,46 @@ exp_wz::exp_wz(crystals_t c)
   inv_radius = 1.0 / (A2 + A4) / dielectric;
 }
 
-
 gsl_matrix_complex *exp_wz::matrix_block(double a1, double a2)
 {
   gsl_matrix_complex *output =
     gsl_matrix_complex_alloc(matrix_term_block_size, matrix_term_block_size);
   #include "exp_wz_def.hh"
   return output;
+}
+
+double exp_wz::_get_parameter(crystal_parameters_t param)
+{
+  switch(param)
+    {
+    case _A1: return A1;
+    case _A2: return A2;
+    case _A3: return A3;
+    case _A4: return A4;
+    case _A5: return A5;
+    case _A6: return A6;
+    case _d1: return d1;
+    case _d2: return d2;
+    case _d3: return d3;
+    default: return 1.0 / 0.0;
+    }
+}
+
+double exp_wz::_set_parameter(crystal_parameters_t param, double val)
+{
+  switch(param)
+    {
+    case _A1: return A1 = val;
+    case _A2: return A2 = val;
+    case _A3: return A3 = val;
+    case _A4: return A4 = val;
+    case _A5: return A5 = val;
+    case _A6: return A6 = val;
+    case _d1: return d1 = val;
+    case _d2: return d2 = val;
+    case _d3: return d3 = val;
+    default: return 1.0 / 0.0;
+    }
 }
 
 
@@ -218,6 +275,56 @@ gsl_matrix_complex *exp_gwz::matrix_block(double a1, double a2)
   return output;
 }
 
+double exp_gwz::_get_parameter(crystal_parameters_t param)
+{
+  switch(param)
+    {
+    case _A1: return A1;
+    case _A2: return A2;
+    case _A3: return A3;
+    case _B1: return B1;
+    case _B2: return B2;
+    case _B3: return B3;
+    case _C1: return C1;
+    case _C2: return C2;
+    case _C3: return C3;
+    case _D1: return D1;
+    case _D2: return D2;
+    case _D3: return D3;
+    case _d1c: return d1c;
+    case _d2c: return d2c;
+    case _d1so: return d1so;
+    case _d2so: return d2so;
+    case _d3so: return d3so;
+    default: return 1.0 / 0.0;
+    }
+}
+
+double exp_gwz::_set_parameter(crystal_parameters_t param, double val)
+{
+  switch(param)
+    {
+    case _A1: return A1 = val;
+    case _A2: return A2 = val;
+    case _A3: return A3 = val;
+    case _B1: return B1 = val;
+    case _B2: return B2 = val;
+    case _B3: return B3 = val;
+    case _C1: return C1 = val;
+    case _C2: return C2 = val;
+    case _C3: return C3 = val;
+    case _D1: return D1 = val;
+    case _D2: return D2 = val;
+    case _D3: return D3 = val;
+    case _d1c: return d1c = val;
+    case _d2c: return d2c = val;
+    case _d1so: return d1so = val;
+    case _d2so: return d2so = val;
+    case _d3so: return d3so = val;
+    default: return 1.0 / 0.0;
+    }
+}
+
 
 // ############################ exp_coulomb ##########################
 exp_coulomb::exp_coulomb()
@@ -264,6 +371,15 @@ exp_LCZ::exp_LCZ(elements_t _host, elements_t _impurity)
   host = new exp_LCZ_atom(_host);
   impurity = new exp_LCZ_atom(_impurity);
   coulomb = new exp_coulomb();
+  dielectric_ratio = 1.0;
+}
+
+exp_LCZ::exp_LCZ(elements_t _host, elements_t _impurity, double ratio)
+{
+  host = new exp_LCZ_atom(_host);
+  impurity = new exp_LCZ_atom(_impurity);
+  coulomb = new exp_coulomb();
+  dielectric_ratio = ratio;
 }
 
 gsl_matrix_complex *exp_LCZ::matrix(double min, double max, size_t num)
@@ -294,8 +410,29 @@ void exp_LCZ::on_set_inv_radius(double r)
 void exp_LCZ::on_set_dielectric_constant(double k)
 {
   host->set_dielectric_constant(k);
-  impurity->set_dielectric_constant(k);
-  coulomb->set_dielectric_constant(k);
+  impurity->set_dielectric_constant(k * dielectric_ratio);
+  coulomb->set_dielectric_constant(k * dielectric_ratio);
+}
+
+double exp_LCZ::_get_parameter(impurity_parameters_t param)
+{
+  switch(param)
+    {
+    case _dielectric_ratio: return dielectric_ratio;
+    default: return 1.0 / 0.0;
+    }
+}
+
+double exp_LCZ::_set_parameter(impurity_parameters_t param, double val)
+{
+  switch(param)
+    {
+    case _dielectric_ratio:
+      on_set_dielectric_constant(val);
+      return dielectric_ratio = val;
+    default:
+      return 1.0 / 0.0;
+    }
 }
 
 void exp_LCZ::on_delete()

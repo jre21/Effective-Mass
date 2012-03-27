@@ -60,24 +60,24 @@ class crystal_term   : public matrix_term
 {
 public:
   double get_parameter(crystal_parameters_t param);
-  double set_parameter(crystal_parameters_t param);
+  double set_parameter(crystal_parameters_t param, double val);
 private:
   // These should signal an invalid parameter by returning 1.0/0.0
   // (i.e., +infinity)
   virtual double _get_parameter(crystal_parameters_t param);
-  virtual double _set_parameter(crystal_parameters_t param);
+  virtual double _set_parameter(crystal_parameters_t param, double val);
 };
 
 class impurity_term  : public matrix_term
 {
 public:
   double get_parameter(impurity_parameters_t param);
-  double set_parameter(impurity_parameters_t param);
+  double set_parameter(impurity_parameters_t param, double val);
 private:
   // These should signal an invalid parameter by returning 1.0/0.0
   // (i.e., +infinity)
   virtual double _get_parameter(impurity_parameters_t param);
-  virtual double _set_parameter(impurity_parameters_t param);
+  virtual double _set_parameter(impurity_parameters_t param, double val);
 };
 
 class overlap_term   : public matrix_term {};
@@ -93,6 +93,8 @@ public:
   exp_zb(crystals_t c);
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
+  double _get_parameter(crystal_parameters_t param);
+  double _set_parameter(crystal_parameters_t param, double val);
   double g1;
   double g2;
   double g3;
@@ -108,6 +110,8 @@ public:
   exp_wz(crystals_t c);
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
+  double _get_parameter(crystal_parameters_t param);
+  double _set_parameter(crystal_parameters_t param, double val);
   double A1;
   double A2;
   double A3;
@@ -130,6 +134,8 @@ public:
   exp_gwz(crystals_t c);
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
+  double _get_parameter(crystal_parameters_t param);
+  double _set_parameter(crystal_parameters_t param, double val);
   double A1;
   double A2;
   double A3;
@@ -177,13 +183,21 @@ class exp_LCZ_atom;
 class exp_LCZ : public impurity_term
 {
 public:
+  // default dielectric ratio to 1.0 unless passed as argument in
+  // constructor
   exp_LCZ(elements_t host, elements_t impurity);
+  exp_LCZ(elements_t host, elements_t impurity, double ratio);
   gsl_matrix_complex *matrix(double min, double max, size_t num);
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
   void on_set_inv_radius(double r);
   void on_set_dielectric_constant(double k);
+  double _get_parameter(impurity_parameters_t param);
+  double _set_parameter(impurity_parameters_t param, double val);
   void on_delete();
+  // ratio of dielectric constant between central cell potential and
+  // coulomb potential
+  double dielectric_ratio;
   exp_LCZ_atom *host;
   exp_LCZ_atom *impurity;
   exp_coulomb *coulomb;

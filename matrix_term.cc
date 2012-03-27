@@ -91,9 +91,9 @@ double crystal_term::get_parameter(crystal_parameters_t param)
   return ret;
 }
 
-double crystal_term::set_parameter(crystal_parameters_t param)
+double crystal_term::set_parameter(crystal_parameters_t param, double val)
 {
-  double ret = _set_parameter(param);
+  double ret = _set_parameter(param, val);
   if(1.0 / 0.0 == ret)
     {
       // mismatch between crystal term type and parameter
@@ -108,7 +108,7 @@ double crystal_term::_get_parameter(crystal_parameters_t param)
   return 1.0 / 0.0;
 }
 
-double crystal_term::_set_parameter(crystal_parameters_t param)
+double crystal_term::_set_parameter(crystal_parameters_t param, double val)
 {
   return 1.0 / 0.0;
 }
@@ -126,9 +126,9 @@ double impurity_term::get_parameter(impurity_parameters_t param)
   return ret;
 }
 
-double impurity_term::set_parameter(impurity_parameters_t param)
+double impurity_term::set_parameter(impurity_parameters_t param, double val)
 {
-  double ret = _set_parameter(param);
+  double ret = _set_parameter(param, val);
   if(1.0 / 0.0 == ret)
     {
       // mismatch between impurity term type and parameter
@@ -143,7 +143,7 @@ double impurity_term::_get_parameter(impurity_parameters_t param)
   return 1.0 / 0.0;
 }
 
-double impurity_term::_set_parameter(impurity_parameters_t param)
+double impurity_term::_set_parameter(impurity_parameters_t param, double val)
 {
   return 1.0 / 0.0;
 }
