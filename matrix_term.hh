@@ -228,7 +228,9 @@ protected:
 
 
 // terms using basis functions with gaussian radial terms
-
+// slated for removal because they're unused, this was a poor way to
+// implement them, and they're liable to bit rot
+/*
 // zinc-blend crystal term
 class gauss_zb : public crystal_term
 {
@@ -401,6 +403,6 @@ class gauss_overlap : public overlap_term
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
 };
-
+*/
 
 #endif // _MATRIX_TERM_HH
