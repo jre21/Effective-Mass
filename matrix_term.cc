@@ -85,7 +85,8 @@ double crystal_term::get_parameter(crystal_parameters_t param)
   if(1.0 / 0.0 == ret)
     {
       // mismatch between crystal term type and parameter
-      printf("Error: crystal_term::get_parameter(): invalid parameter");
+      printf("Error: crystal_term::get_parameter(): invalid parameter: %s\n",
+	     crystal_parameters_to_string(param));
       exit(-1);
     }
   return ret;
@@ -97,7 +98,8 @@ double crystal_term::set_parameter(crystal_parameters_t param, double val)
   if(1.0 / 0.0 == ret)
     {
       // mismatch between crystal term type and parameter
-      printf("Error: crystal_term::set_parameter(): invalid parameter");
+      printf("Error: crystal_term::set_parameter(): invalid parameter: %s\n",
+	     crystal_parameters_to_string(param));
       exit(-1);
     }
   return ret;
@@ -120,7 +122,8 @@ double impurity_term::get_parameter(impurity_parameters_t param)
   if(1.0 / 0.0 == ret)
     {
       // mismatch between impurity term type and parameter
-      printf("Error: impurity_term::get_parameter(): invalid parameter");
+      printf("Error: impurity_term::get_parameter(): invalid parameter: %s\n",
+	     impurity_parameters_to_string(param));
       exit(-1);
     }
   return ret;
@@ -132,7 +135,8 @@ double impurity_term::set_parameter(impurity_parameters_t param, double val)
   if(1.0 / 0.0 == ret)
     {
       // mismatch between impurity term type and parameter
-      printf("Error: impurity_term::set_parameter(): invalid parameter");
+      printf("Error: impurity_term::set_parameter(): invalid parameter: %s\n",
+	     impurity_parameters_to_string(param));
       exit(-1);
     }
   return ret;

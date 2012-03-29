@@ -132,3 +132,48 @@ const char *crystals_to_string(crystals_t c)
     default: return "unknown";
     }
 }
+
+const char *crystal_parameters_to_string(crystal_parameters_t c)
+{
+  switch(c)
+    {
+    case _g1: return "g1";
+    case _g2: return "g2";
+    case _g3: return "g3";
+    case _d0: return "d0";
+    case _A1: return "A1";
+    case _A2: return "A2";
+    case _A3: return "A3";
+    case _A4: return "A4";
+    case _A5: return "A5";
+    case _A6: return "A6";
+    case _d1: return "d1";
+    case _d2: return "d2";
+    case _d3: return "d3";
+    case _B1: return "B1";
+    case _B2: return "B2";
+    case _B3: return "B3";
+    case _C1: return "C1";
+    case _C2: return "C2";
+    case _C3: return "C3";
+    case _D1: return "D1";
+    case _D2: return "D2";
+    case _D3: return "D3";
+    case _d1c: return "d1c";
+    case _d2c: return "d2c";
+    case _d1so: return "d1so";
+    case _d2so: return "d2so";
+    case _d3so: return "d3so";
+    case _dielectric: return "dielectric";
+    default: return "unknown";
+    }
+}
+
+const char *impurity_parameters_to_string(impurity_parameters_t c)
+{
+  switch(c)
+    {
+    case _dielectric_ratio: return "dielectric_ratio";
+    default: return "unknown";
+    }
+}

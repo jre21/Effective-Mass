@@ -64,6 +64,7 @@ double exp_zb::_get_parameter(crystal_parameters_t param)
     case _g2: return g2;
     case _g3: return g3;
     case _d0: return d0;
+    case _dielectric: return dielectric;
     default: return 1.0 / 0.0;
     }
 }
@@ -72,10 +73,17 @@ double exp_zb::_set_parameter(crystal_parameters_t param, double val)
 {
   switch(param)
     {
-    case _g1: return g1 = val;
+    case _g1:
+      g1 = val;
+      inv_radius = 1.0 / g1 / dielectric;
+      return val;
     case _g2: return g2 = val;
     case _g3: return g3 = val;
     case _d0: return d0 = val;
+    case _dielectric:
+      dielectric = val;
+      inv_radius = 1.0 / g1 / dielectric;
+      return val;
     default: return 1.0 / 0.0;
     }
 }
@@ -176,14 +184,24 @@ double exp_wz::_set_parameter(crystal_parameters_t param, double val)
   switch(param)
     {
     case _A1: return A1 = val;
-    case _A2: return A2 = val;
+    case _A2:
+      A2 = val;
+      inv_radius = 1.0 / (A2 + A4) / dielectric;
+      return val;
     case _A3: return A3 = val;
-    case _A4: return A4 = val;
+    case _A4:
+      A4 = val;
+      inv_radius = 1.0 / (A2 + A4) / dielectric;
+      return val;
     case _A5: return A5 = val;
     case _A6: return A6 = val;
     case _d1: return d1 = val;
     case _d2: return d2 = val;
     case _d3: return d3 = val;
+    case _dielectric:
+      dielectric = val;
+      inv_radius = 1.0 / (A2 + A4) / dielectric;
+      return val;
     default: return 1.0 / 0.0;
     }
 }
@@ -307,8 +325,14 @@ double exp_gwz::_set_parameter(crystal_parameters_t param, double val)
     case _A1: return A1 = val;
     case _A2: return A2 = val;
     case _A3: return A3 = val;
-    case _B1: return B1 = val;
-    case _B2: return B2 = val;
+    case _B1:
+      B1 = val;
+      inv_radius = 1.0 / (B1 + B2) / dielectric;
+      return val;
+    case _B2:
+      B2 = val;
+      inv_radius = 1.0 / (B1 + B2) / dielectric;
+      return val;
     case _B3: return B3 = val;
     case _C1: return C1 = val;
     case _C2: return C2 = val;
@@ -321,6 +345,10 @@ double exp_gwz::_set_parameter(crystal_parameters_t param, double val)
     case _d1so: return d1so = val;
     case _d2so: return d2so = val;
     case _d3so: return d3so = val;
+    case _dielectric:
+      dielectric = val;
+      inv_radius = 1.0 / (B1 + B2) / dielectric;
+      return val;
     default: return 1.0 / 0.0;
     }
 }
@@ -428,8 +456,9 @@ double exp_LCZ::_set_parameter(impurity_parameters_t param, double val)
   switch(param)
     {
     case _dielectric_ratio:
-      on_set_dielectric_constant(val);
-      return dielectric_ratio = val;
+      dielectric_ratio = val;
+      on_set_dielectric_constant(dielectric);
+      return val;
     default:
       return 1.0 / 0.0;
     }

@@ -62,8 +62,9 @@ public:
   double get_parameter(crystal_parameters_t param);
   double set_parameter(crystal_parameters_t param, double val);
 private:
-  // These should signal an invalid parameter by returning 1.0/0.0
-  // (i.e., +infinity)
+  // These should update internal state to be consistent with the
+  // parameter's new value, or signal an invalid parameter by
+  // returning 1.0/0.0 (i.e., +infinity)
   virtual double _get_parameter(crystal_parameters_t param);
   virtual double _set_parameter(crystal_parameters_t param, double val);
 };
@@ -74,8 +75,9 @@ public:
   double get_parameter(impurity_parameters_t param);
   double set_parameter(impurity_parameters_t param, double val);
 private:
-  // These should signal an invalid parameter by returning 1.0/0.0
-  // (i.e., +infinity)
+  // These should update internal state to be consistent with the
+  // parameter's new value, or signal an invalid parameter by
+  // returning 1.0/0.0 (i.e., +infinity)
   virtual double _get_parameter(impurity_parameters_t param);
   virtual double _set_parameter(impurity_parameters_t param, double val);
 };

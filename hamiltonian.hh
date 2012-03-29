@@ -4,6 +4,8 @@
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
 
+#include "enums.hh"
+
 // classes defining the matrix terms used
 #ifndef _MATRIX_TERM_HH
 class crystal_term;
@@ -28,6 +30,12 @@ public:
   void set_crystal(crystal_term *c);
   void set_impurity(impurity_term *p);
   void set_overlap(overlap_term *o);
+
+  // Get and set parameters from crystal and impurity terms.
+  double get_crystal_parameter(crystal_parameters_t param);
+  double set_crystal_parameter(crystal_parameters_t param, double val);
+  double get_impurity_parameter(impurity_parameters_t param);
+  double set_impurity_parameter(impurity_parameters_t param, double val);
 
   // Override default granularity of basis states.  Min and max set
   // minimum and maximum scales in multiples of the inverse effective

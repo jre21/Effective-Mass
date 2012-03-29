@@ -110,6 +110,50 @@ void hamiltonian::set_overlap(overlap_term *o)
   o->set_inv_radius(inv_radius);
 }
 
+double hamiltonian::get_crystal_parameter(crystal_parameters_t param)
+{
+  if(!crystal)
+    {
+      printf("Error: hamiltonian::get_crystal_parameter(): crystal is not set\n");
+      exit(-1);
+    }
+  return crystal->get_parameter(param);
+}
+
+double hamiltonian::set_crystal_parameter(crystal_parameters_t param, double val)
+{
+  if(!crystal)
+    {
+      printf("Error: hamiltonian::get_crystal_parameter(): crystal is not set\n");
+      exit(-1);
+    }
+  double ret = crystal->set_parameter(param, val);
+  set_crystal(crystal);
+  return ret;
+}
+
+double hamiltonian::get_impurity_parameter(impurity_parameters_t param)
+{
+  if(!impurity)
+    {
+      printf("Error: hamiltonian::get_impurity_parameter(): impurity is not set\n");
+      exit(-1);
+    }
+  return impurity->get_parameter(param);
+}
+
+double hamiltonian::set_impurity_parameter(impurity_parameters_t param, double val)
+{
+  if(!impurity)
+    {
+      printf("Error: hamiltonian::get_impurity_parameter(): impurity is not set\n");
+      exit(-1);
+    }
+  double ret = impurity->set_parameter(param, val);
+  set_impurity(impurity);
+  return ret;
+}
+
 void hamiltonian::set_granularity(double min, double max, size_t num)
 {
   // free eigenvalues if their size needs to be changed
