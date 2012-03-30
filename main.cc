@@ -10,6 +10,14 @@ int main(int argc, char **argv)
 {
   hamiltonian ham
     (
+     new exp_wz(InN),
+     new exp_coulomb(),
+     new exp_overlap()
+    );
+  printf("InN: %g\n", ham.get_eval(0));
+  /*
+  hamiltonian ham
+    (
      new exp_wz(GaN),
      new exp_coulomb(),
      new exp_overlap()
@@ -43,6 +51,6 @@ int main(int argc, char **argv)
   ham.set_impurity(new exp_LCZ(Zn,K));
   printf("K_Zn: %g\n", ham.get_eval(0));
   ham.set_impurity(new exp_LCZ(N,C));
-  printf("C_N: %g\n", ham.get_eval(0));
+  printf("C_N: %g\n", ham.get_eval(0));*/
   return 0;
 }

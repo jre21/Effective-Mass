@@ -137,14 +137,14 @@ exp_wz::exp_wz(crystals_t c)
       break;
     case InN:
       A1 = 15.72;
-      A2 = 0.7;
+      A2 = 0.63;
       A3 = -15.23;
-      A4 = 5.79;
-      A5 = 5.9;
-      A6 = 4.58;
-      d1 = 14.8 * RYD_PER_MEV;
-      d2 = 3.4 * RYD_PER_MEV;
-      d3 = -2.2 * RYD_PER_MEV;
+      A4 = 7.10;
+      A5 = 7.14;
+      A6 = 5.03;
+      d1 = -43.7 * RYD_PER_MEV;
+      d2 = 3.17 * RYD_PER_MEV;
+      d3 = 1.98 * RYD_PER_MEV;
       dielectric = 14;
       break;
     default:
