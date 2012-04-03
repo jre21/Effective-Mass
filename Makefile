@@ -16,7 +16,10 @@ LDLIBS	= -lgsl -lcblas -latlas -lm
 
 DEFNS	= exp_zb_def.hh exp_wz_def.hh exp_gwz_def.hh exp_coulomb_def.hh \
 	exp_dielectric_def.hh exp_well_def.hh exp_lcz_def.hh \
-	exp_overlap_def.hh \
+	exp_overlap_def.hh
+#	definition files for the gaussian radial functions, in case
+#	they are needed later.  Note that any file which uses any of
+#	these headers must #include <gsl/gsl_sf_erf.h>
 #	gauss_zb_def.hh gauss_wz_def.hh gauss_gwz_def.hh \
 #	gauss_coulomb_def.hh gauss_dielectric_def.hh gauss_well_def.hh \
 #	gauss_lcz_def.hh gauss_hgh_def.hh gauss_overlap_def.hh
@@ -26,7 +29,7 @@ DEPS	= hamiltonian.hh matrix_term.hh enums.hh defs.hh
 
 ODIR	= obj
 _OBJ	= main.o hamiltonian.o matrix_term.o \
-	matrix_term_exp.o enums.o # matrix_term_gauss.o
+	matrix_term_exp.o enums.o
 OBJ	= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 BIN	= evals.bin
