@@ -14,7 +14,7 @@
 // default basis granularity
 #define BASIS_MIN 1e-2
 #define BASIS_MAX 1e2
-#define BASIS_NUM 20
+#define BASIS_NUM 25
 
 
 hamiltonian::hamiltonian()

@@ -63,7 +63,7 @@ double exp_zb::_get_parameter(crystal_parameters_t param)
     case _g1: return g1;
     case _g2: return g2;
     case _g3: return g3;
-    case _d0: return d0;
+    case _d0: return d0 * MEV_PER_RYD;
     case _dielectric: return dielectric;
     default: return 1.0 / 0.0;
     }
@@ -79,7 +79,9 @@ double exp_zb::_set_parameter(crystal_parameters_t param, double val)
       return val;
     case _g2: return g2 = val;
     case _g3: return g3 = val;
-    case _d0: return d0 = val;
+    case _d0:
+      d0 = val * RYD_PER_MEV;
+      return val;
     case _dielectric:
       dielectric = val;
       inv_radius = 1.0 / g1 / dielectric;
@@ -144,7 +146,7 @@ exp_wz::exp_wz(crystals_t c)
       A6 = 5.03;
       d1 = -43.7 * RYD_PER_MEV;
       d2 = 3.17 * RYD_PER_MEV;
-      d3 = 1.98 * RYD_PER_MEV;
+      d3 = 1.97 * RYD_PER_MEV;
       dielectric = 14;
       break;
     default:
@@ -172,9 +174,9 @@ double exp_wz::_get_parameter(crystal_parameters_t param)
     case _A4: return A4;
     case _A5: return A5;
     case _A6: return A6;
-    case _d1: return d1;
-    case _d2: return d2;
-    case _d3: return d3;
+    case _d1: return d1 * MEV_PER_RYD;
+    case _d2: return d2 * MEV_PER_RYD;
+    case _d3: return d3 * MEV_PER_RYD;
     default: return 1.0 / 0.0;
     }
 }
@@ -195,9 +197,15 @@ double exp_wz::_set_parameter(crystal_parameters_t param, double val)
       return val;
     case _A5: return A5 = val;
     case _A6: return A6 = val;
-    case _d1: return d1 = val;
-    case _d2: return d2 = val;
-    case _d3: return d3 = val;
+    case _d1:
+      d1 = val * RYD_PER_MEV;
+      return val;
+    case _d2:
+      d2 = val * RYD_PER_MEV;
+      return d2;
+    case _d3: 
+      d3 = val * RYD_PER_MEV;
+      return d3;
     case _dielectric:
       dielectric = val;
       inv_radius = 1.0 / (A2 + A4) / dielectric;
@@ -309,11 +317,11 @@ double exp_gwz::_get_parameter(crystal_parameters_t param)
     case _D1: return D1;
     case _D2: return D2;
     case _D3: return D3;
-    case _d1c: return d1c;
-    case _d2c: return d2c;
-    case _d1so: return d1so;
-    case _d2so: return d2so;
-    case _d3so: return d3so;
+    case _d1c: return d1c * MEV_PER_RYD;
+    case _d2c: return d2c * MEV_PER_RYD;
+    case _d1so: return d1so * MEV_PER_RYD;
+    case _d2so: return d2so * MEV_PER_RYD;
+    case _d3so: return d3so * MEV_PER_RYD;
     default: return 1.0 / 0.0;
     }
 }
@@ -340,11 +348,19 @@ double exp_gwz::_set_parameter(crystal_parameters_t param, double val)
     case _D1: return D1 = val;
     case _D2: return D2 = val;
     case _D3: return D3 = val;
-    case _d1c: return d1c = val;
-    case _d2c: return d2c = val;
-    case _d1so: return d1so = val;
-    case _d2so: return d2so = val;
-    case _d3so: return d3so = val;
+    case _d1c:
+      d1c = val * RYD_PER_MEV;
+      return val;
+    case _d2c: d2c = val * RYD_PER_MEV;
+      return val;
+    case _d1so:
+      d1so = val * RYD_PER_MEV;
+      return val;
+    case _d2so:
+      d2so = val * RYD_PER_MEV;
+      return val;
+    case _d3so: d3so = val * RYD_PER_MEV;
+      return val;
     case _dielectric:
       dielectric = val;
       inv_radius = 1.0 / (B1 + B2) / dielectric;
