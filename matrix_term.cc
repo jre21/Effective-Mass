@@ -19,10 +19,7 @@ matrix_term::matrix_term()
   inv_radius = dielectric = 1.0;
 }
 
-matrix_term::~matrix_term()
-{
-  on_delete();
-}
+matrix_term::~matrix_term() {}
 
 gsl_matrix_complex *matrix_term::matrix(double min, double max, size_t num)
 {
@@ -76,7 +73,6 @@ double matrix_term::set_dielectric_constant(double k)
 // hooks provided for use by child classes
 void matrix_term::on_set_inv_radius(double r) {}
 void matrix_term::on_set_dielectric_constant(double k) {}
-void matrix_term::on_delete() {}
 
 // ########################### crystal_term ##########################
 double crystal_term::get_parameter(crystal_parameters_t param)

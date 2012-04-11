@@ -116,6 +116,11 @@ const char *elements_to_string(elements_t e)
     case Ds: return "Ds";
     case Rg: return "Rg";
     case Cn: return "Cn";
+    case Ga_val: return "Ga: valance";
+    case Ge_val: return "Ge: valance";
+    case As_val: return "As: valance";
+    case Se_val: return "Se: valance";
+    case Br_val: return "Br: valance";
     default: return "unknown";
     }
 }

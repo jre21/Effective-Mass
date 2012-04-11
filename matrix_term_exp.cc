@@ -480,7 +480,7 @@ double exp_LCZ::_set_parameter(impurity_parameters_t param, double val)
     }
 }
 
-void exp_LCZ::on_delete()
+exp_LCZ::~exp_LCZ()
 {
   delete host;
   delete impurity;
@@ -695,6 +695,36 @@ void exp_LCZ_atom::set_d_core(elements_t atom)
       C1 = 15.224;
       C2 = 2.0910;
       C3 = 4.0707;
+      break;
+    case Ga_val:
+      Zc = 18;
+      C1 = 14.546;
+      C2 = 1.8131;
+      C3 = 4.1180;
+      break;
+    case Ge_val:
+      Zc = 18;
+      C1 = 14.823;
+      C2 = 1.8874;
+      C3 = 4.3502;
+      break;
+    case As_val:
+      Zc = 18;
+      C1 = 14.885;
+      C2 = 1.9489;
+      C3 = 4.6132;
+      break;
+    case Se_val:
+      Zc = 18;
+      C1 = 15.162;
+      C2 = 2.0268;
+      C3 = 4.9060;
+      break;
+    case Br_val:
+      Zc = 18;
+      C1 = 15.269;
+      C2 = 2.0950;
+      C3 = 5.2180;
       break;
     default:
       printf("Error: LCZ pseudopotential not available for %s\n",
