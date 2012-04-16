@@ -388,7 +388,7 @@ gsl_matrix_complex *exp_coulomb::matrix_block(double a1, double a2)
 // ############################# exp_wang ############################
 exp_wang::exp_wang(double _V, double _ra, double _rb, double _r1)
 {
-  V = _V;
+  V = _V * RYD_PER_MEV;
   ra = _ra;
   rb = _rb;
   r1 = _r1;
@@ -453,9 +453,9 @@ void exp_LCZ::on_set_inv_radius(double r)
 
 void exp_LCZ::on_set_dielectric_constant(double k)
 {
-  host->set_dielectric_constant(k);
+  host->set_dielectric_constant(k * dielectric_ratio);
   impurity->set_dielectric_constant(k * dielectric_ratio);
-  coulomb->set_dielectric_constant(k * dielectric_ratio);
+  coulomb->set_dielectric_constant(k);
 }
 
 double exp_LCZ::_get_parameter(impurity_parameters_t param)
