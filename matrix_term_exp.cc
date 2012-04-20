@@ -389,9 +389,9 @@ gsl_matrix_complex *exp_coulomb::matrix_block(double a1, double a2)
 exp_wang::exp_wang(double _V, double _ra, double _rb, double _r1)
 {
   V = _V * RYD_PER_MEV;
-  ra = _ra;
-  rb = _rb;
-  r1 = _r1;
+  ra = _ra * AU_PER_ANGSTROM;
+  rb = _rb * AU_PER_ANGSTROM;
+  r1 = _r1 * AU_PER_ANGSTROM;
   dielectric = inv_radius = 1.0;
 }
 

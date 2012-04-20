@@ -167,6 +167,7 @@ protected:
 class exp_wang : public impurity_term
 {
 public:
+  // V should be entered in meV, other params in Angstroms
   exp_wang(double V, double ra, double rb, double r1);
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
