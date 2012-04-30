@@ -169,8 +169,11 @@ class exp_wang : public impurity_term
 public:
   // V should be entered in meV, other params in Angstroms
   exp_wang(double V, double ra, double rb, double r1);
+  exp_wang(crystals_t crystal, elements_t impurity);
 protected:
   gsl_matrix_complex *matrix_block(double a1, double a2);
+  double _get_parameter(impurity_parameters_t param);
+  double _set_parameter(impurity_parameters_t param, double val);
   double V;
   double ra;
   double rb;

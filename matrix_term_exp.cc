@@ -395,6 +395,71 @@ exp_wang::exp_wang(double _V, double _ra, double _rb, double _r1)
   dielectric = inv_radius = 1.0;
 }
 
+exp_wang::exp_wang(crystals_t crystal, elements_t impurity)
+{
+  /*
+   * The difference in energy central cell potential depths between
+   * impurities are assumed to be constant across crystals.
+   * Therefore, we associate a well depth to each atom such that V is
+   * the difference of the potential depth of the impurity and host
+   * atoms.  Because only differences matter, we choose Gallium and
+   * Nitrogen to have depth 0.
+   */
+  double Vcat1, Vcat2, Van;
+  switch(crystal)
+    {
+    case GaN:
+      Vcat1 = 0 * AU_PER_ANGSTROM; // Ga
+      Vcat2 = 0 * AU_PER_ANGSTROM; // null
+      Van = 0 * RYD_PER_MEV; // N
+      rb = 0.98 * AU_PER_ANGSTROM;
+      r1 = 0.68 * AU_PER_ANGSTROM;
+      break;
+    default:
+      printf("Error: exp_wang instantiated with unknown crystal");
+      exit(-1);
+    }
+
+  switch(impurity)
+    {
+    case Be:
+      V = 1000 * RYD_PER_MEV - Vcat1;
+      ra = 1.06 * AU_PER_ANGSTROM;
+      break;
+    case Mg:
+      V = 1300 * RYD_PER_MEV - Vcat1;
+      ra = 1.40 * AU_PER_ANGSTROM;
+      break;
+    case Ca:
+      V = 1450 * RYD_PER_MEV - Vcat1;
+      ra = 1.74 * AU_PER_ANGSTROM;
+      break;
+    case Zn:
+      V = 3400 * RYD_PER_MEV - Vcat1;
+      ra = 1.31 * AU_PER_ANGSTROM;
+      break;
+    case Cd:
+      V = 4050 * RYD_PER_MEV - Vcat1;
+      ra = 1.48 * AU_PER_ANGSTROM;
+      break;
+    case C:
+      V = -8050 * RYD_PER_MEV - Van;
+      ra = 0.77 * AU_PER_ANGSTROM;
+      break;
+    case Si:
+      V = 2050 * RYD_PER_MEV - Van;
+      ra = 1.17 * AU_PER_ANGSTROM;
+      break;
+    case Ge:
+      V = 2950 * RYD_PER_MEV - Van;
+      ra = 1.22 * AU_PER_ANGSTROM;
+      break;
+    default:
+      printf("Error: exp_wang instantiated with unknown crystal");
+      exit(-1);
+    }
+}
+
 gsl_matrix_complex *exp_wang::matrix_block(double a1, double a2)
 {
   gsl_matrix_complex *output =
@@ -406,6 +471,31 @@ gsl_matrix_complex *exp_wang::matrix_block(double a1, double a2)
   gsl_matrix_complex_add(output, out2);
   gsl_matrix_complex_free(out2);
   return output;
+}
+
+double exp_wang::_get_parameter(impurity_parameters_t param)
+{
+  switch(param)
+    {
+    case _V: return V * MEV_PER_RYD;
+    case _ra: return ra * ANGSTROM_PER_AU;
+    case _rb: return rb * ANGSTROM_PER_AU;
+    case _r1: return r1 * ANGSTROM_PER_AU;
+    default: return 1.0 / 0.0;
+    }
+}
+
+double exp_wang::_set_parameter(impurity_parameters_t param, double val)
+{
+  switch(param)
+    {
+    case _V: return V = val * RYD_PER_MEV;
+    case _ra: return ra = val * AU_PER_ANGSTROM;
+    case _rb: return rb = val * AU_PER_ANGSTROM;
+    case _r1: return r1 = val * AU_PER_ANGSTROM;
+    default:
+      return 1.0 / 0.0;
+    }
 }
 
 

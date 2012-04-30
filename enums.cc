@@ -179,6 +179,10 @@ const char *impurity_parameters_to_string(impurity_parameters_t c)
   switch(c)
     {
     case _dielectric_ratio: return "dielectric_ratio";
+    case _V: return "V";
+    case _ra: return "ra";
+    case _rb: return "rb";
+    case _r1: return "r1";
     default: return "unknown";
     }
 }
