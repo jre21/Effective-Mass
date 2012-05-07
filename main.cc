@@ -10,10 +10,11 @@ int main(int argc, char **argv)
 {
   hamiltonian ham
     (
-     new exp_zb(3.76, 0.90, 1.42 ,300, 10.06),
-     new exp_wang(GaN, Be),
+     new exp_zb(GaAs),
+     new exp_wang(GaAs, nul),
      new exp_overlap()
     );
+  printf("%.1f\n", ham.get_eval(0));
   double level = ham.get_impurity_parameter(_V);
   for(int i = -2500; i >= -6500; i -= 500)
     {

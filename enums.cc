@@ -121,6 +121,7 @@ const char *elements_to_string(elements_t e)
     case As_val: return "As: valance";
     case Se_val: return "Se: valance";
     case Br_val: return "Br: valance";
+    case nul: return "nul";
     default: return "unknown";
     }
 }
@@ -132,6 +133,8 @@ const char *crystals_to_string(crystals_t c)
     case GaN: return "GaN";
     case AlN: return "AlN";
     case InN: return "InN";
+    case GaAs: return "GaAs";
+    case AlAs: return "AlAs";
     case ZnGeN2: return "ZnGeN2";
     case ZnSnN2: return "ZnSnN2";
     default: return "unknown";

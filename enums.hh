@@ -14,14 +14,17 @@ enum elements_t
            Lr,Rf,Db,Sg,Bh,Hs,Mt,Ds,Rg,Cn,
     // elements with 3d band treated as valance
     // used for lcz potential
-    Ga_val, Ge_val, As_val, Se_val, Br_val
+    Ga_val, Ge_val, As_val, Se_val, Br_val,
+    // used for Wang_Chen potential to define V0=0 (no central cell
+    // potential)
+    nul
   };
 
 const char *elements_to_string(elements_t e);
 
 enum crystals_t
   {
-    GaN, AlN, InN, ZnGeN2, ZnSnN2
+    GaN, AlN, InN, GaAs, AlAs, ZnGeN2, ZnSnN2
   };
 
 const char *crystals_to_string(crystals_t c);

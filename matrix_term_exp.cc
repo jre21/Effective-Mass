@@ -40,6 +40,20 @@ exp_zb::exp_zb(crystals_t c)
       d0 = 19 * RYD_PER_MEV;
       dielectric = 9.67;
       break;
+    case GaAs:
+      g1 = 7.10;
+      g2 = 2.02;
+      g3 = 2.91;
+      d0 = 340 * RYD_PER_MEV;
+      dielectric = 12.56;
+      break;
+    case AlAs:
+      g1 = 3.76;
+      g2 = 0.90;
+      g3 = 1.42;
+      d0 = 300 * RYD_PER_MEV;
+      dielectric = 10.06;
+      break;
     default:
       printf("Error: exp_zb instantiated with unknown crystal");
       exit(-1);
@@ -429,6 +443,20 @@ exp_wang::exp_wang(crystals_t crystal, elements_t impurity)
       rb = 1.08 * AU_PER_ANGSTROM;
       r1 = 0.76 * AU_PER_ANGSTROM;
       break;
+    case GaAs:
+      Vcat1 = 0 * RYD_PER_MEV; // Ga
+      Vcat2 = 0 * RYD_PER_MEV; // null
+      Van = -5700 * RYD_PER_MEV; // As
+      rb = 1.22 * AU_PER_ANGSTROM;
+      r1 = 0.85 * AU_PER_ANGSTROM;
+      break;
+    case AlAs:
+      Vcat1 = 0 * RYD_PER_MEV; // Al
+      Vcat2 = 0 * RYD_PER_MEV; // null
+      Van = -5700 * RYD_PER_MEV; // As
+      rb = 1.22 * AU_PER_ANGSTROM;
+      r1 = 0.85 * AU_PER_ANGSTROM;
+      break;
     default:
       printf("Error: exp_wang instantiated with unknown crystal");
       exit(-1);
@@ -467,6 +495,10 @@ exp_wang::exp_wang(crystals_t crystal, elements_t impurity)
     case Ge:
       V = 2950 * RYD_PER_MEV - Van;
       ra = 1.22 * AU_PER_ANGSTROM;
+      break;
+    case nul:
+      V = 0 * RYD_PER_MEV;
+      ra = 0 * AU_PER_ANGSTROM;
       break;
     default:
       printf("Error: exp_wang instantiated with unknown crystal");
