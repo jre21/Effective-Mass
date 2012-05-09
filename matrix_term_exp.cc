@@ -430,7 +430,7 @@ exp_wang::exp_wang(crystals_t crystal, elements_t impurity)
       r1 = 0.68 * AU_PER_ANGSTROM;
       break;
     case AlN:
-      Vcat1 = -4500 * RYD_PER_MEV; // Al
+      Vcat1 = -4000 * RYD_PER_MEV; // Al
       Vcat2 = 0 * RYD_PER_MEV; // null
       Van = 0 * RYD_PER_MEV; // N
       rb = 0.96 * AU_PER_ANGSTROM;
@@ -451,11 +451,11 @@ exp_wang::exp_wang(crystals_t crystal, elements_t impurity)
       r1 = 0.85 * AU_PER_ANGSTROM;
       break;
     case AlAs:
-      Vcat1 = 0 * RYD_PER_MEV; // Al
+      Vcat1 = -4000 * RYD_PER_MEV; // Al
       Vcat2 = 0 * RYD_PER_MEV; // null
       Van = -5700 * RYD_PER_MEV; // As
-      rb = 1.22 * AU_PER_ANGSTROM;
-      r1 = 0.85 * AU_PER_ANGSTROM;
+      rb = 1.23 * AU_PER_ANGSTROM;
+      r1 = 0.86 * AU_PER_ANGSTROM;
       break;
     default:
       printf("Error: exp_wang instantiated with unknown crystal");
