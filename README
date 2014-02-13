@@ -1,0 +1,10 @@
+This program computes the binding energies dopants in various
+semiconducting crystals using the effective mass approximation.  The
+Zinc-blende and Wurtzite crystal structures are supported, as well as
+a generalized Wurtzite structure used in semiconductors with
+alternating cations.  Several differing methods of approximating the
+potential due to impurities are supported.  I used a mathematica
+script to do initial symbolic processing on terms, but the majority of
+the program is written in C++, using Gnu Scientific Library and ATLAS
+to do the heavy lifting.  Any other cblas implementation can be used
+in place of ATLAS by suitably editing the LDLIBS flag in the makefile.
